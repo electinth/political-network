@@ -2,10 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Anuphan';
+}
+html {
+  scroll-behavior: smooth;
+  outline: none;
+}
+
+.lastname {
+  font-size: 200px;
+  font-family: 'Tiga';
+}
+
 @layer utilities {
-  .lastname {
-    font-size: 200px;
-  }
   .h1 {
     font-size: 42px;
     @media screen and (max-width: 767px) {

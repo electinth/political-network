@@ -8,11 +8,11 @@
         มีเลือกตั้งหรือวาระการเมืองทีไร คุ้นๆ กันไหมกับนามสกุลนี้
       </p>
     </span>
-    <div id="lastname" class="lastname">เทียนทอง</div>
+    <div id="lastname" class="lastname">{{ sampling[counter].name }}</div>
     <div
       class="px-10 py-2 border-white rounded cursor-pointer body3"
       style="border: 1px solid #ffffff"
-      @click="random_lastname"
+      @click="picked_lastname"
     >
       เลือก
     </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   data() {
     return {
@@ -39,18 +40,42 @@ export default {
         { name: 'M' },
         { name: 'N' },
         { name: 'O' },
-        { name: 'P' },
-        { name: 'Q' },
-        { name: 'R' },
-        { name: 'S' },
-        { name: 'T' },
       ],
-      random: [{ name: 'A' }, { name: 'J' }, { name: 'S' }, { name: 'T' }],
+      random: [
+        { name: 'Pooh' },
+        { name: 'Aum' },
+        { name: 'Max' },
+        { name: 'Jame' },
+      ],
+      counter: 0,
+      interval: null,
+      timer: 50,
+      stop: false,
     }
   },
+
+  mounted() {
+    this.random_lastname()
+  },
   methods: {
+    picked_lastname() {
+      let selected = _.sample(this.random)
+      this.sampling = [...this.sampling, selected]
+      this.stop = true
+      this.timer *= 2.5
+    },
+
     random_lastname() {
-      console.log('random JA 🛩 ')
+      this.counter++
+    },
+  },
+  watch: {
+    counter(newValue, oldValue) {
+      if (newValue < this.sampling.length - 1) {
+        setTimeout(this.random_lastname, this.timer)
+      } else if (!this.stop) {
+        this.counter = 0
+      }
     },
   },
 }
