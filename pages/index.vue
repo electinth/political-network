@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <RandomName
-      class="absolute inset-0 flex items-center justify-center text-center text-white bg-black"
+      class="absolute inset-0 flex items-center justify-center text-center"
     />
   </div>
 </template>
