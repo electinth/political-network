@@ -1,6 +1,10 @@
 <template>
-  <div id="random-name" class="flex flex-col duration-1000 bg-black-400">
-    <div id="random-title-wrapper" class="text-white duration-700 opacity-100">
+  <div
+    id="random-name"
+    class="flex flex-col bg-black-400"
+    style="transition-duration: 1300ms"
+  >
+    <div id="random-title-wrapper" class="text-white duration-500 opacity-100">
       <span>
         <p id="title" class="font-bold body1">
           ที่สุดของตระกูลการเมืองไทย ถิ่นไหน.. ใครครอง
@@ -11,9 +15,9 @@
       </span>
     </div>
     <div id="random-wrapper" class="w-full" style="transition-duration: 1.5s">
-      <div id="lastname-wrapper">
-        <p class="text-yellow-400 lastname" id="lastname">
-          {{ sampling[counter].name }}
+      <div id="surname-wrapper">
+        <p class="text-yellow-400 surname" id="surname">
+          {{ sampling[counter].surname }}
         </p>
         <div
           v-if="stop"
@@ -29,9 +33,31 @@
         id="choose-bottom"
         class="flex justify-center px-8 py-1 m-auto text-pink-400 rounded opacity-100 cursor-pointer hover:bg-pink-400 hover:text-black-400 body3"
         style="border: 1px solid #fc6cff; width: fit-content"
-        @click="picked_lastname"
+        @click="picked_surname"
       >
         เลือก
+      </div>
+      <div id="wrapper" class="relative opacity-0" v-if="is_wrapper">
+        <div
+          id="content"
+          class="absolute w-full bg-black-400"
+          style="
+            transition-duration: 1300ms;
+            transform: translateX(-50%);
+            left: 50%;
+          "
+        >
+          <span class="flex flex-col items-center mt-5">
+            <p class="body2">เป็น 1 ในตระกูลที่ทรงอิทธิพลทางการเมือง</p>
+            <span class="flex">
+              <p class="body2">ในช่วง 3 ทศวรรษที่ผ่านมาทั้งใน</p>
+              <p class="font-bold text-purple-400 body1">ระดับท้องถิ่น</p>
+              <p class="body2">และ</p>
+              <p class="font-bold text-blue-400 body1">ระดับประเทศ</p>
+            </span>
+          </span>
+          <PassAndFuture :filter_name="filter_name" />
+        </div>
       </div>
     </div>
   </div>
@@ -39,91 +65,85 @@
 
 <script>
 import _ from 'lodash'
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      sampling: [
-        { name: 'A' },
-        { name: 'B' },
-        { name: 'C' },
-        { name: 'D' },
-        { name: 'E' },
-        { name: 'F' },
-        { name: 'G' },
-        { name: 'H' },
-        { name: 'I' },
-        { name: 'J' },
-        { name: 'K' },
-        { name: 'L' },
-        { name: 'M' },
-        { name: 'N' },
-        { name: 'O' },
-        { name: 'C' },
-        { name: 'D' },
-        { name: 'E' },
-        { name: 'F' },
-        { name: 'G' },
-        { name: 'H' },
-        { name: 'I' },
-        { name: 'J' },
-        { name: 'K' },
-        { name: 'L' },
-      ],
-      random: [
-        { name: 'เทียนทอง' },
-        { name: 'ศรีสุวรรณ' },
-        { name: 'จำปาซ่อนกลิ่น' },
-        { name: 'Jame' },
-      ],
+      sampling: [{ name: 'sampling' }],
       counter: 0,
       interval: null,
       timer: 50,
       stop: false,
+      diff_top: 0,
+      is_wrapper: false,
+      filter_name: [],
     }
+  },
+  computed: {
+    ...mapState(['categories', 'top_20', 'top_20_name']),
   },
 
   mounted() {
-    this.random_lastname()
+    this.random_surname()
+    this.sampling = _.sampleSize(this.categories, 25)
+    setTimeout(() => {
+      this.diff_top = document
+        .getElementById('random-wrapper')
+        .getBoundingClientRect().top
+    }, 0)
   },
   methods: {
-    picked_lastname() {
-      let selected = _.sample(this.random)
+    picked_surname() {
+      let selected = _.sample(this.top_20)
       this.sampling = [...this.sampling, selected]
+      this.filter_name = _.filter(
+        this.top_20_name,
+        (n) => n.surname === selected.surname
+      )
       this.stop = true
       this.timer *= 2.5
       document.getElementById('choose-bottom').style.display = 'none'
     },
 
-    random_lastname() {
+    random_surname() {
       this.counter++
     },
     re_random() {
       this.stop = false
+      this.is_wrapper = false
       this.timer = 50
       this.counter = 0
       this.sampling.pop()
       document.getElementById('random-title-wrapper').style.opacity = '1'
       document.getElementById('random-wrapper').style.transform =
         'translateY(0)'
-      document.getElementById('lastname').style.color = 'white'
+      document.getElementById('surname').style.color = 'white'
       document.getElementById('random-name').style.background = 'black'
       document.getElementById('rerandom').style.opacity = '0'
+      document.getElementById('wrapper').style.opacity = '0'
       document.getElementById('choose-bottom').style.display = 'block'
+      document.getElementById('surname').style.color = '#F2FFA6'
     },
   },
   watch: {
     counter(newValue, oldValue) {
       if (newValue < this.sampling.length - 1) {
-        setTimeout(this.random_lastname, this.timer)
+        setTimeout(this.random_surname, this.timer)
       } else if (!this.stop) {
         this.counter = 0
       } else {
+        this.is_wrapper = true
+        document.getElementById(
+          'random-wrapper'
+        ).style.transform = `translateY(-${this.diff_top}px)`
         document.getElementById('random-title-wrapper').style.opacity = '0'
-        document.getElementById('random-wrapper').style.transform =
-          'translateY(-100%)'
-        document.getElementById('lastname').style.color = 'black'
-        document.getElementById('random-name').style.background = '#F2FFA6'
-        document.getElementById('rerandom').style.opacity = '1'
+        setTimeout(() => {
+          document.getElementById('surname').style.color = 'black'
+          document.getElementById('content').style.background = '#F2FFA6'
+          document.getElementById('random-name').style.background = '#F2FFA6'
+          document.getElementById('rerandom').style.opacity = '1'
+          document.getElementById('wrapper').style.opacity = '1'
+        }, 500)
       }
     },
   },

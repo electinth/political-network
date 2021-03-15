@@ -10,9 +10,16 @@ html {
   outline: none;
 }
 
-.lastname {
+.surname {
   font-size: 200px;
   font-family: 'Tiga';
+}
+.bubble {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @layer utilities {
