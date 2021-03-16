@@ -56,7 +56,10 @@
               <p class="font-bold text-blue-400 body1">ระดับประเทศ</p>
             </span>
           </span>
-          <PassAndFuture :filter_name="filter_name" />
+          <PassAndFuture :filter_name="filter_name" :selected="selected" />
+          <div id="insight" class="w-6/12 m-auto mt-20 mb-6 body2">
+            {{ selected.insight }}
+          </div>
         </div>
       </div>
     </div>
@@ -77,6 +80,7 @@ export default {
       diff_top: 0,
       is_wrapper: false,
       filter_name: [],
+      selected: [],
     }
   },
   computed: {
@@ -94,11 +98,11 @@ export default {
   },
   methods: {
     picked_surname() {
-      let selected = _.sample(this.top_20)
-      this.sampling = [...this.sampling, selected]
+      this.selected = _.sample(this.top_20)
+      this.sampling = [...this.sampling, this.selected]
       this.filter_name = _.filter(
         this.top_20_name,
-        (n) => n.surname === selected.surname
+        (n) => n.surname === this.selected.surname
       )
       this.stop = true
       this.timer *= 2.5
