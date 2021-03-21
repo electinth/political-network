@@ -168,7 +168,6 @@ export default {
   },
   mounted() {
     this.separate = _.groupBy(this.filter_name, 'position')
-
     this.role1 = this.format_data(this.separate['1_นายก/รองนายก_อดีต'])
     this.role2 = this.format_data(this.separate['2_สอบจ_อดีต'])
     this.role3 = this.format_data(this.separate['3_สส_อดีต'])
@@ -186,7 +185,6 @@ export default {
       try {
         return require(`~/assets/face/${name}_${surname}.jpg`)
       } catch (error) {
-        console.log(error)
         return require('~/assets/face/no_pic.svg')
       }
     },

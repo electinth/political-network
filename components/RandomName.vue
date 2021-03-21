@@ -49,17 +49,24 @@
         >
           <span class="flex flex-col items-center mt-5">
             <p class="body2">เป็น 1 ในตระกูลที่ทรงอิทธิพลทางการเมือง</p>
-            <span class="flex">
+            <span class="flex items-center">
               <p class="body2">ในช่วง 3 ทศวรรษที่ผ่านมาทั้งใน</p>
               <p class="font-bold text-purple-400 body1">ระดับท้องถิ่น</p>
               <p class="body2">และ</p>
               <p class="font-bold text-blue-400 body1">ระดับประเทศ</p>
             </span>
           </span>
-          <PassAndFuture :filter_name="filter_name" :selected="selected" />
+          <PassAndFuture :filter_name="filter_name" />
           <div id="insight" class="w-6/12 m-auto mt-20 mb-6 body2">
             {{ selected.insight }}
           </div>
+          <PartyList :filter_name="filter_name" :selected="selected" />
+          <p class="mt-20 body2">และยังเป็นผู้มีอิทธพลในพื้นที่จังหวัด</p>
+          <p class="mt-5 mb-16 font-bold h2">{{ selected.district }}</p>
+          <Cluster type="surname-cluster" />
+          <Cluster type="party-cluster" />
+          <ScatterPot />
+          <CheckSurname />
         </div>
       </div>
     </div>
@@ -68,7 +75,7 @@
 
 <script>
 import _ from 'lodash'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -80,11 +87,10 @@ export default {
       diff_top: 0,
       is_wrapper: false,
       filter_name: [],
-      selected: [],
     }
   },
   computed: {
-    ...mapState(['categories', 'top_20', 'top_20_name']),
+    ...mapState(['categories', 'top_20', 'top_20_name', 'selected']),
   },
 
   mounted() {
@@ -97,8 +103,9 @@ export default {
     }, 0)
   },
   methods: {
+    ...mapMutations(['SELECTED']),
     picked_surname() {
-      this.selected = _.sample(this.top_20)
+      this.SELECTED(_.sample(this.top_20))
       this.sampling = [...this.sampling, this.selected]
       this.filter_name = _.filter(
         this.top_20_name,
@@ -153,5 +160,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

@@ -23,6 +23,16 @@ module.exports = {
       blue: {
         400: '#1861F0',
       },
+      orange: {
+        400: '#F15A29',
+      },
+      green: {
+        400: '#2BA3B4',
+      },
+      gray: {
+        300: '#BDBDBD',
+        400: '#828282',
+      },
     },
   },
   variants: {},
