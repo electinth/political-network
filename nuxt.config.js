@@ -4,9 +4,7 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  router: {
-    base: '/political-network/'
-  },
+
   // generate: {
   //   dir: 'docs',
   // },
