@@ -5,12 +5,13 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/political-network/'
+    base: process.env.BASE_URL || '/',
   },
 
-  // generate: {
-  //   dir: 'docs',
-  // },
+  build: {
+    publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'political-network',
