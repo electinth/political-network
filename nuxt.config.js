@@ -23,7 +23,7 @@ export default {
   css: ['@/assets/css/globals.scss', './assets/fonts.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/elect.client.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,6 +44,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['nuxt-mq'],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -61,6 +62,16 @@ export default {
           skipEmptyLines: true,
         },
       })
+    },
+  },
+  mq: {
+    defaultBreakpoint: 'desktop',
+    breakpoints: {
+      mobile: 767,
+      tablet: 1023,
+      desktop: 1400,
+      desktopWide: 2000,
+      desktopUltraWide: Infinity,
     },
   },
 }

@@ -2,14 +2,27 @@
   <div id="scatter-pot " class="pt-40 bg-white">
     <div id="header">
       <div>
-        <div class="flex justify-center">
+        <div
+          class="flex flex-col items-center justify-center w-9/12 m-auto md:flex-row md:w-full"
+        >
           <p>เมื่อนำการผูกขาดของตระกูลและพรรคมาเทียบกัน จังหวัด</p>
-          <Autocomplete :items="district" holder="เลือกจังหวัด" />
+          <Autocomplete
+            :items="district"
+            holder="เลือกจังหวัด"
+            class="mb-3 md:mb-0"
+          />
         </div>
         <p
+          v-if="$mq != 'mobile'"
           class="mt-3"
           v-html="
             'มีการผูกขาดของตระกูล <b>สูง</b> ขณะที่การผูกขาดของพรรค <b>ต่ำ</b>'
+          "
+        />
+        <span
+          v-if="$mq === 'mobile'"
+          v-html="
+            '<p>มีการผูกขาดของตระกูล <b>สูง</b></p><p>ขณะที่การผูกขาดของพรรค <b>ต่ำ</b></p>'
           "
         />
         <p class="mt-5 opacity-50 body5">(คลิกเพื่อดูจังหวัดอื่นๆ ได้)</p>
@@ -44,10 +57,12 @@ export default {
   methods: {
     ...mapMutations(['SET_HHI_OVERALL', 'SET_DISTRICT']),
     draw() {
+      let w = this.$mq === 'mobile' ? 330 : 460
+      let h = this.$mq === 'mobile' ? 390 : 400
       this.pot = d3.select('#pot')
       let margin = { top: 10, right: 30, bottom: 60, left: 60 },
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom
+        width = w - margin.left - margin.right,
+        height = h - margin.top - margin.bottom
 
       this.svg = d3
         .select('#pot')

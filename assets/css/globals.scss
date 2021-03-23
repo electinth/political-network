@@ -13,6 +13,12 @@ html {
 .surname {
   font-size: 200px;
   font-family: 'Tiga';
+  @media screen and (max-width: 1023px) {
+    font-size: 100px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 55px;
+  }
 }
 
 .tooltip {
@@ -30,8 +36,17 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 767px) {
+    width: 60px;
+    height: 60px;
+  }
 }
-
+// #party-list:last-child {
+//   border-bottom: none;
+// }
+// #party-list {
+//   border-bottom: 1px solid #a9b374;
+// }
 .check {
   position: relative;
   cursor: pointer;
@@ -56,16 +71,6 @@ html {
   width: 25px;
   border: none;
   border-radius: 5px;
-}
-
-/* On mouse-over, add a grey background color */
-.check:hover input ~ .checkmark {
-  // background-color: #1861f0;
-}
-
-/* When the checkbox is checked, add a blue background */
-.check input:checked ~ .checkmark {
-  // background-color: #1861f0;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -121,8 +126,11 @@ html {
   }
   .body1 {
     font-size: 24px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1023px) {
       font-size: 21px;
+    }
+    @media screen and (max-width: 767px) {
+      font-size: 16px;
     }
   }
   .body2 {
@@ -133,8 +141,11 @@ html {
   }
   .body3 {
     font-size: 18px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1023px) {
       font-size: 16px;
+    }
+    @media screen and (max-width: 767px) {
+      font-size: 14px;
     }
   }
   .body4 {

@@ -4,12 +4,23 @@
     class="flex flex-col bg-black-400"
     style="transition-duration: 1300ms"
   >
+    <navigation-bar
+      dark="true"
+      class="absolute top-0 w-full px-8 mt-5 bg-black-400"
+      style="transition-duration: 1300ms"
+      v-if="nav_bar"
+    >
+      <div class="flex items-center">
+        <div class="ml-3 text-white cursor-pointer md:ml-0">Home</div>
+        <div class="ml-5 text-white cursor-pointer">about</div>
+      </div>
+    </navigation-bar>
     <div id="random-title-wrapper" class="text-white duration-500 opacity-100">
-      <span>
-        <p id="title" class="font-bold body1">
+      <span class="relative z-20">
+        <p id="title" class="w-2/3 mx-auto font-bold md:w-full body1">
           ที่สุดของตระกูลการเมืองไทย ถิ่นไหน.. ใครครอง
         </p>
-        <p id="subtitle" class="body3">
+        <p id="subtitle" class="w-2/3 mx-auto md:w-full body3">
           มีเลือกตั้งหรือวาระการเมืองทีไร คุ้นๆ กันไหมกับนามสกุลนี้
         </p>
       </span>
@@ -31,7 +42,7 @@
       </div>
       <div
         id="choose-bottom"
-        class="flex justify-center px-8 py-1 m-auto text-pink-400 rounded opacity-100 cursor-pointer hover:bg-pink-400 hover:text-black-400 body3"
+        class="flex justify-center px-8 py-1 m-auto mt-10 text-pink-400 rounded opacity-100 cursor-pointer hover:bg-pink-400 hover:text-black-400 body3"
         style="border: 1px solid #fc6cff; width: fit-content"
         @click="picked_surname"
       >
@@ -47,7 +58,7 @@
             left: 50%;
           "
         >
-          <span class="flex flex-col items-center mt-5">
+          <span class="flex flex-col items-center mt-5" v-if="$mq != 'mobile'">
             <p class="body2">เป็น 1 ในตระกูลที่ทรงอิทธิพลทางการเมือง</p>
             <span class="flex items-center">
               <p class="body2">ในช่วง 3 ทศวรรษที่ผ่านมาทั้งใน</p>
@@ -56,8 +67,19 @@
               <p class="font-bold text-blue-400 body1">ระดับประเทศ</p>
             </span>
           </span>
+
+          <span class="flex flex-col items-center mt-5" v-if="$mq === 'mobile'">
+            <p class="body2">เป็น 1 ในตระกูลที่ทรงอิทธิพลทาง</p>
+            <p class="body2">การเมืองในช่วง 3 ทศวรรษที่ผ่านมา</p>
+            <span class="flex items-center">
+              <p class="body2">ทั้งใน</p>
+              <p class="font-bold text-purple-400 body1">ระดับท้องถิ่น</p>
+              <p class="ml-1 body2">และ</p>
+              <p class="ml-1 font-bold text-blue-400 body1">ระดับประเทศ</p>
+            </span>
+          </span>
           <PassAndFuture :filter_name="filter_name" />
-          <div id="insight" class="w-6/12 m-auto mt-20 mb-6 body2">
+          <div id="insight" class="w-5/6 m-auto mt-20 mb-6 md:w-6/12 body2">
             {{ selected.insight }}
           </div>
           <PartyList :filter_name="filter_name" :selected="selected" />
@@ -67,6 +89,105 @@
           <Cluster type="party-cluster" />
           <ScatterPot />
           <CheckSurname />
+          <Inpower />
+          <div
+            id="relation"
+            class="flex flex-col items-center justify-center h-screen text-white bg-black-400"
+          >
+            <div class="mx-5 font-bold md:mx-0 md:w-1/2 h1">
+              ความสัมพันธ์ทางเครือญาติ และการครองอำนาจของตระกูลใหญ่
+              ในระบบการเมืองไทย
+            </div>
+            <div class="mx-5 mt-10 body2 md:w-1/2 md:mx-0">
+              เมื่อมีการเลือกตั้งหรือวาระทางการเมือง
+              เรามักจะคุ้นเคยกับชื่อตระกูลที่ทรงอิทธิพลทางการเมือง
+              หรือที่เรียกกันว่า “บ้านใหญ่”
+              ซึ่งตระกูลเหล่านี้มักเป็นตระกูลที่ทรงอิทธิพลทางการเมืองมาเป็น
+              เวลานาน และมีความยึดโยงกับพื้นที่ในแต่ละจังหวัด
+            </div>
+          </div>
+          <div id="why" class="pt-24 bg-white">
+            <div id="title" class="mx-5 font-bold h3 md:w-5/12 md:mx-auto">
+              ทำไมการเมืองไทยจึงมีตระกูลที่ทรงอิทธิพล ทางการเมือง?
+            </div>
+            <div id="body-why" class="py-16 body2">
+              <div v-for="item in why" :key="item.id">
+                <p class="pt-10 font-bold">{{ item.title }}</p>
+                <p class="pt-8 mx-5 md:mx-auto md:w-2/5">{{ item.body }}</p>
+              </div>
+            </div>
+          </div>
+          <div id="county" style="background: #fcffed">
+            <div id="title-county" class="pt-20 font-bold body2">
+              <p>ในต่างประเทศ มีตระกูลทรงอิทธิพล</p>
+              <p>
+                แบบเครือญาติ (Political Families หรือ Political Dynasties)
+                เช่นกัน
+              </p>
+            </div>
+            <div
+              id="body"
+              class="flex flex-col w-4/5 py-20 mx-auto md:flex-row"
+            >
+              <div
+                v-for="item in country"
+                :key="item.id"
+                class="flex flex-col items-center flex-1 px-8 py-8 mx-4 my-2 bg-white md:my-0"
+                style="height: fit-content"
+              >
+                <img :src="item.img" class="rounded-full" style="width: 40px" />
+                <p class="pt-12">{{ item.text }}</p>
+              </div>
+            </div>
+          </div>
+          <div id="pros-cons" class="pt-24 bg-white">
+            <span id="title" class="font-bold h3">
+              <p>การมีตระกูลที่ทรงอิทธิพล</p>
+              <p>ส่งผลอย่างไรกับสังคมและการเมืองไทย?</p>
+            </span>
+
+            <div id="pros" class="pt-32">
+              <p class="font-bold body2">ข้อดี</p>
+              <div
+                v-for="(item, index) in pros"
+                :key="index"
+                class="flex flex-col mt-10 body2"
+              >
+                <p>{{ index + 1 }}.</p>
+                <p class="mx-5 md:w-2/5 md:mx-auto">{{ item }}</p>
+              </div>
+            </div>
+
+            <div id="pros" class="pt-32">
+              <p class="font-bold body2">ข้อเสีย</p>
+              <div
+                v-for="(item, index) in cons"
+                :key="index"
+                class="flex flex-col mt-10 body2"
+              >
+                <p>{{ index + 1 }}.</p>
+                <p class="mx-5 md:w-2/5 md:mx-auto">{{ item }}</p>
+              </div>
+            </div>
+          </div>
+          <div id="confident" class="pt-24 bg-white">
+            <div
+              id="title-confident"
+              class="pb-24 mx-5 font-bold h3 md:w-1/2 md:mx-auto"
+            >
+              แล้วประชาชนจะมั่นใจได้อย่างไร กับการเมืองไทยที่มีระบบเครือญาติ
+            </div>
+            <div id="body-confident">
+              <div
+                v-for="item in confident"
+                :key="item.id"
+                class="mx-5 md:w-3/6 md:mx-auto body2"
+              >
+                <p class="pt-16 font-bold">{{ item.title }}</p>
+                <p class="pt-5">{{ item.body }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -84,9 +205,84 @@ export default {
       interval: null,
       timer: 50,
       stop: false,
+      nav_bar: true,
       diff_top: 0,
       is_wrapper: false,
       filter_name: [],
+      why: [
+        {
+          title: 'มีทุนทางเศรษฐกิจ',
+          body:
+            'มักเริ่มจากการสะสมทุนทางเศรษฐกิจ เช่น ทำธุรกิจ ไม่ว่าจะเป็นโรงสี รับเหมาก่อสร้าง จนกลายเป็นผู้มั่งคั่งในพื้นที่ และได้ขยายธุรกิจสู่เครือญาติ ต่อมาขยายเครือข่ายสู่พรรคพวก ก่อเกิดเป็นกลุ่มต่างๆ เมื่อเข้าสู่การเมืองจากความมั่งคั่งและเครือข่ายที่ใหญ่ทำให้ตระกูลเหล่านี้จึงมีอิทธิพลมาก',
+        },
+        {
+          title: 'มีคนรู้จักในภาครัฐ',
+          body:
+            'หากสามารถส่งเครือญาติหรือมีพวกพ้องของตนอยู่ในภาครัฐได้ จะช่วยอำนวยประโยชน์ให้ตระกูลในด้านเศรษฐกิจ การเมือง และสร้างการเป็นที่รู้จักได้',
+        },
+        {
+          title: 'คนเลือกจากผลงาน',
+          body:
+            'ด้วยความมั่งคั่ง ตระกูลเหล่านี้จึงมีทุนพื้นฐานในการพัฒนาท้องถิ่นของตนได้ ประกอบกับเมื่อเข้าสู่การเมือง ก็สามารถเข้าไปผลักดันโครงการให้เกิดในท้องถิ่นของตน ส่งผลให้ความเจริญเห็นได้ชัดเจน ยิ่งอยู่ยาวนานงานยิ่งเป็นที่ประจักษ์ กลายเป็นผลงานของตระกูล  เช่น สุพรรณบุรีโมเดล',
+        },
+        {
+          title: 'วัฒนธรรมอุปถัมภ์',
+          body:
+            'ด้วยทุนและเครือข่าย รวมถึงความเชื่อใจในการทำงานที่สะสมมา ทำให้ตระกูลเหล่านี้กลายเป็นผู้อุปถัมภ์ของคนในพื้นที่ที่ต้องการความช่วยเหลือและพึ่งพา เมื่อถึงวาระเลือกตั้ง เลยทำให้กลายเป็นความช่วยเหลือต่างตอบแทน ตระกูลเหล่านี้จึงมักได้รับเลือกอยู่เสมอ',
+        },
+      ],
+      country: [
+        {
+          img: require('~/assets/images/india.svg'),
+          text:
+            'ในอินเดียที่มีความสัมพันธ์ทางเครือญาติหรือความเป็นตระกูลอิทธิพลสูง ตระกูลการเมืองที่เก่าแก่และอยู่ในการเมืองนานที่สุด คือ ‘ตระกูลเนห์รู’ ซึ่งได้เกี่ยวดองกับตระกูลคานธีและส่งเครือญาติเข้าสู่การเมืองในบทบาทสำคัญตลอด ปัจจุบันทายาทรุ่นล่าสุดของตระกูลเนห์รู-คานธีถูกจับตามองว่าจะก้าวสู่นายกรัฐมนตรีอินเดียในอนาคต',
+        },
+        {
+          img: require('~/assets/images/china.svg'),
+          text:
+            'ในจีน สมัยที่พรรคคอมมิวนิสต์จีนเข้าปกครองประเทศ กลุ่มผู้นำพรรครุ่นแรกก็ช่วยกันสร้างพรรคให้มั่นคง พร้อมทั้งปูทางให้กับเครือญาติลูกหลานให้เติบโตและได้ผลประโยชน์ในวงธุรกิจในพรรคอีกด้วย ที่เห็นอย่างชัดเจนคือ ประธานาธิบดีสี จิ้นผิง เป็นบุตรชายของสี จงชุน อดีตผู้นำพรรครุ่นแรกคนสนิทของประธานเหมา เจ๋อตง อีกคนนึงที่เติบโตและได้ผลประโยชน์ทางธุรกิจคือ ป๋อ ซีไหล บุตรของ ป๋อ อีปอ หนึ่งในกลุ่มแปดเซียนที่นำโดยเติ้ง เสี่ยว ผิง ผู้นำพรรคคอมมิวนิสต์ระดับอาวุโสร่วมกับประธานเหมา',
+        },
+        {
+          img: require('~/assets/images/usa.svg'),
+          text:
+            'ในสหรัฐอเมริกาก็มีตระกูลทางการเมืองเช่นกัน เช่น ตระกูลเคนเนดี ที่มีบทบาทในด้านธุรกิจและการเมือง แต่ลักษณะไม่เหมือนกับไทย อินเดีย หรือจีนมากนัก เพราะในอเมริกาค่อนข้างยึดโยงพรรคสูง และประชาชนกระตือรือร้นในการมีส่วนร่วมและแสดงออกทางการเมืองมาก ทำให้สิ่งที่มุ่งเน้นเป็นนโยบายมากกว่าเครือญาติ',
+        },
+      ],
+      pros: [
+        'เป็นศูนย์รวมความร่วมมือจากประชาชน เพราะเป็นที่รู้จักและได้รับความนิยมจากประชาชน ทำให้การขอความร่วมมือค่อนข้างง่าย',
+        'เป็นประโยชน์ในการพัฒนาท้องถิ่น เพราะมีทุนและเครือข่ายในการปฏิบัติงาน สามารถให้ความช่วยเหลือและผลักดันทั้งงบประมาณ สาธารณูปโภคต่างๆ ได้อย่างรวดเร็ว',
+        'เกิดความรวดเร็ว ลดความขัดแย้งในการทำนโยบายหรือโครงการ เนื่องจากตระกูลทรงอิทธิพล จะมีเครือข่ายทั้งเครือญาติและกลุ่ม ทำให้ความเห็นต่างค่อนข้างน้อย ส่งผลให้การขับเคลื่อนนโยบายเป็นไปได้ง่าย รวดเร็ว ไม่มีข้อขัดแย้งมาก',
+      ],
+      cons: [
+        'ไม่ส่งเสริมความเป็นประชาธิปไตยอย่างเสรี ในเชิงการเปิดรับฟังความคิดเห็นที่แตกต่าง การแข่งขันเนื่องจากตระกูลทรงอิทธิพลมีลักษณะเครือญาติและพวกพ้องสูง ทำให้คนที่ต้องการแสดงความคิดเห็นที่แตกต่างทำได้ยาก อีกทั้งยังถูกกีดกันในการแข่งขันทั้งด้านเศรษฐกิจ และการเมือง',
+        'การกระจุกตัวของผลประโยชน์ ถึงแม้จะมีความช่วยเหลือให้ประชาชนในท้องถิ่นของตน แต่ผลประโยชน์หลักก็ยังคงอยู่ที่ตระกูลทรงอิทธิพลและเครือข่าย',
+        'นโยบายไม่มีความหลากหลายและความสร้างสรรค์มากนัก เนื่องจากเป็นเครือข่ายเดียวกันและการทรงอิทธิพลมาอย่างยาวนาน  ทำให้นโยบายที่ถูกกำหนดขึ้นถูกกำหนดจากตระกูลที่มีอิทธิพลฝั่งเดียว ประกอบกับการขัดแย้งที่น้อยส่งผลให้ไม่มีความหลากหลายและสร้างสรรค์มากนัก',
+        'สร้างการฝังรากลึกของระบบอุปถัมภ์ เนื่องจากอิทธิพลของตระกูลใหญ่ ทั้งด้านเศรษฐกิจ กลุ่มเครือข่าย บารมี ทำให้เกิดความพึ่งพาสูง ส่งผลให้เกิดการต่างตอบแทนขึ้น ซึ่งสามารถขยายและฝั่งรากลึกเป็นระบบอุปถัมภ์',
+      ],
+      confident: [
+        {
+          title:
+            'รัฐส่วนกลางควรส่งเสริมให้มีการกระจายอำนาจให้ท้องถิ่นอย่างแท้จริง',
+          body:
+            'เนื่องจากระบบเครือญาติในการเมืองไทย มีความยึดโยงกับพื้นที่ ฉะนั้นต้องมีองค์การปกครองท้องถิ่นนำอำนาจของรัฐ ที่กระจายให้มาพึ่งพาและตัดสินใจในการบริหารกิจการในพื้นที่ของตนได้ด้วยตัวเอง เมื่อท้องถิ่นมีอำนาจเต็มที่ ประชาชนก็สามารถติดต่อเสนอความต้องการกับท้องถิ่นได้โดยตรง และหากท้องถิ่นไม่ปฏิบัติสามารถร้องเรียนหรือรัฐส่วนกลางสามารถมาตรวจสอบได้ ลดการพึ่งพาจากตระกูลอิทธิพลและการเมืองแบบเครือญาติ',
+        },
+        {
+          title: 'ประชาชนเองก็ต้องทำหน้าที่ตรวจสอบการทำงาน',
+          body:
+            'ไม่ว่าจะเป็นคนจากตระกูลทรงอิทธิพลหรือใครก็ตามที่เข้าไปมีบทบาททางการเมืองทั้งระดับท้องถิ่นและระดับชาติ ประชาชนควรจะทำความเข้าใจในบทบาทหน้าที่และร่วมกันตรวจสอบการทำงาน เพื่อคานอำนาจและสร้างมั่นใจให้กับตนเองว่าผู้ที่ได้รับเลือกสามารถตอบสนองความต้องการได้อย่างแท้จริง',
+        },
+        {
+          title: 'เปิดเผยข้อมูล สร้างความโปร่งใส',
+          body:
+            'การเมืองไทยที่มีระบบเครือญาติอาจไม่ได้เป็นปัญหามากนัก หากนโยบาย โครงการกระบวนการจัดซื้อจัดจ้าง เปิดเผยข้อมูลอย่างตรงไปตรงมา และโปร่งใส ประชาชนสามารถเข้าถึงได้',
+        },
+        {
+          title:
+            'สร้างมีพื้นที่ในการแสดงความคิดเห็น หรือพื้นที่ให้เข้าไปตรวจสอบได้',
+          body:
+            'ควรมีพื้นที่ที่เปิดให้ประชาชน เข้าไปถกเถียง แลกเปลี่ยนความคิดเห็นในเรื่องสาธารณะได้ เป็นจุดที่ขับเคลื่อนความเป็นพลเมืองและเชื่อมทั้งรัฐและประชาชน เสนอความต้องการของตนเองได้',
+        },
+      ],
     }
   },
   computed: {
@@ -112,6 +308,7 @@ export default {
         (n) => n.surname === this.selected.surname
       )
       this.stop = true
+      this.nav_bar = false
       this.timer *= 2.5
       document.getElementById('choose-bottom').style.display = 'none'
     },
@@ -134,6 +331,9 @@ export default {
       document.getElementById('wrapper').style.opacity = '0'
       document.getElementById('choose-bottom').style.display = 'block'
       document.getElementById('surname').style.color = '#F2FFA6'
+      setTimeout(() => {
+        this.nav_bar = true
+      }, 1000)
     },
   },
   watch: {

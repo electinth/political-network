@@ -1,39 +1,72 @@
 <template>
   <div class="pt-16 bg-white">
-    <span id="title" class="flex justify-center body2">
+    <span id="title" class="flex justify-center body2" v-if="$mq != 'mobile'">
       <p>หากดู</p>
       <p
         class="font-bold"
         :class="
           type === 'surname-cluster' ? 'text-orange-400' : 'text-green-400'
         "
-      >
-        {{
+        v-html="
           type === 'surname-cluster'
             ? 'การกระจุกตัวของอิทธิพลทางการเมืองของตระกูลต่างๆ'
             : 'การผูกขาดอิทธิพลทางการเมืองของพรรคต่างๆ'
-        }}
-      </p>
+        "
+      />
     </span>
+    <p v-if="$mq === 'mobile'" class="w-5/6 m-auto body2">
+      หากดู<span
+        class="font-bold"
+        :class="
+          type === 'surname-cluster' ? 'text-orange-400' : 'text-green-400'
+        "
+        >{{
+          type === 'surname-cluster'
+            ? 'การกระจุกตัวของอิทธิพลทางการเมืองของตระกูลต่างๆ'
+            : 'การผูกขาดอิทธิพลทางการเมืองของพรรคต่างๆ'
+        }}</span
+      >ในจังหวัด
+    </p>
     <div id="Autocomplete" class="flex justify-center mt-2 body2">
-      <p>ในจังหวัด</p>
+      <p v-if="$mq != 'mobile'">ในจังหวัด</p>
       <Autocomplete :items="district" holder="เลือกจังหวัด" />
       <span class="flex"
-        ><p>ในจังหวัด</p>
+        ><p>พบว่ามีการผูกขาด</p>
         <p class="font-bold">
           {{ type === 'surname-cluster' ? 'สูง' : 'ต่ำ' }}
         </p></span
       >
     </div>
     <p class="mt-5 opacity-50 body5">(คลิกเพื่อดูจังหวัดอื่นๆ ได้)</p>
-    <div id="wrapper-body" class="flex mt-16">
-      <div class="flex justify-end flex-1 mx-16">
+    <div id="wrapper-body" class="flex flex-col mt-16 md:flex-row">
+      <div class="relative flex justify-center flex-1 md:justify-end xl:mx-16">
         <Map :data="HHI_Overall" :type="type" />
+        <div
+          id="scale"
+          class="absolute"
+          :style="{ top: '70%', right: $mq === 'mobile' ? '10%' : '0%' }"
+        >
+          <p class="body6">Herfindahl-Hirschman Index (HHI)</p>
+          <div
+            class="w-4/12"
+            style="width: 180px; height: 10px"
+            :style="{
+              background:
+                type === 'surname-cluster'
+                  ? ' linear-gradient(90deg,rgba(241, 90, 41, 0) 0%,#f15a29 100%)'
+                  : 'linear-gradient(90deg, rgba(43, 163, 180, 0) 0%, #2BA3B4 100%)',
+            }"
+          ></div>
+          <div class="flex justify-between body6">
+            <p>ต่ำ (0.0)</p>
+            <p>สูง (1.0)</p>
+          </div>
+        </div>
       </div>
-      <div class="flex-1 mx-16">
+      <div class="flex-1 md:mx-16">
         <div
           id="card-surname"
-          class="flex flex-col px-5 overflow-hidden rounded-lg shadow"
+          class="flex flex-col px-5 mx-auto overflow-hidden rounded-lg shadow"
           style="width: 320px; max-height: 480px"
         >
           <div id="title" class="pt-5 font-bold body1">
@@ -120,6 +153,8 @@ export default {
   data() {
     return {
       data: [],
+      title_orange:
+        'หากดู<p class="orgrange">การกระจุกตัวของอิทธิพลทางการเมืองของตระกูลต่างๆ</p>',
     }
   },
   props: {
@@ -147,4 +182,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.orgrange {
+  color: #f15a29;
+}
+.green {
+  color: #2ba3b4;
+}
+</style>

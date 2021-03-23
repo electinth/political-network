@@ -136,6 +136,11 @@ export default {
 input::-webkit-input-placeholder {
   opacity: 0.3;
 }
+input {
+  @media screen and (max-width: 767px) {
+    width: 150px;
+  }
+}
 .autocomplete-results {
   padding: 0;
   margin: 0;

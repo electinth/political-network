@@ -6,7 +6,7 @@ import HHI_Surname from '../data/HHI_Surname.csv'
 import HHI_Party from '../data/HHI_Party.csv'
 import categories_names from '../data/categories_names.csv'
 import district from '../data/district.csv'
-
+import in_power from '../data/in_power.csv'
 const state = () => ({
   categories: categories,
   top_20: top_20,
@@ -16,6 +16,7 @@ const state = () => ({
   HHI_Party: HHI_Party,
   categories_names: categories_names,
   district: district,
+  in_power: in_power,
   selected: [],
   selected_district: null,
 

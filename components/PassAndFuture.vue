@@ -1,6 +1,17 @@
 <template>
-  <div id="PassAndFuture" class="flex m-auto mt-8" style="width: fit-content">
-    <div class="flex-1 mx-8" id="pass">
+  <div
+    id="PassAndFuture"
+    class="flex flex-col m-auto mt-8 md:flex-row"
+    style="width: fit-content"
+  >
+    <div
+      class="flex-1 pb-10 md:pb-0 md:px-2 xl:px-8"
+      id="pass"
+      :style="{
+        'border-right': $mq === 'mobile' ? '' : '4px dotted black',
+        'border-bottom': $mq != 'mobile' ? '' : '4px dotted black',
+      }"
+    >
       <div id="header" class="font-bold body2">อดีต</div>
       <div id="year" class="flex my-5 body4">
         <div class="flex-1 text-purple-400">(2555-2562)</div>
@@ -9,7 +20,7 @@
       <div id="body" class="flex justify-center mt-3">
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-white bg-purple-400 rounded-full bubble body5"
+            class="mb-6 font-bold text-white bg-purple-400 rounded-full md:px-3 bubble body5"
           >
             นายก/รองนายกอบจ
           </div>
@@ -71,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="flex-1 mx-8" id="future">
+    <div class="flex-1 pt-10 md:mx-2 xl:mx-8 md:pt-0" id="future">
       <div id="header" class="font-bold body2">ปัจจุบัน</div>
       <div id="year" class="flex my-5 body4">
         <div class="flex-1 text-purple-400">(2563)</div>
@@ -80,7 +91,7 @@
       <div id="body" class="flex justify-center mt-3">
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-white bg-purple-400 rounded-full bubble body5"
+            class="mb-6 font-bold text-white bg-purple-400 rounded-full md:px-3 bubble body5"
           >
             นายก/รองนายกอบจ
           </div>
