@@ -66,7 +66,7 @@
       <div class="flex-1 md:mx-16">
         <div
           id="card-surname"
-          class="flex flex-col px-5 mx-auto overflow-hidden rounded-lg shadow"
+          class="flex flex-col px-5 mx-auto mt-10 overflow-hidden rounded-lg shadow md:mt-0"
           style="width: 320px; max-height: 480px"
         >
           <div id="title" class="pt-5 font-bold body1">
