@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16" id="check-surname">
+  <div class="relative mt-16" id="check-surname">
     <div id="title" class="font-bold h1">
       <p v-if="$mq != 'mobile'">นอกจากตระกูล{{ selected.surname }}</p>
       <span v-if="$mq === 'mobile'">
@@ -56,8 +56,8 @@
     </div>
     <div
       id="name"
-      class="relative flex flex-wrap justify-center h-screen mx-10 mt-10 overflow-hidden"
-      :style="{ fontSize: '15vh' }"
+      class="relative flex flex-wrap justify-center mx-10 mt-10 overflow-hidden"
+      :style="{ fontSize: fontSize }"
     >
       <div
         v-for="(r, i) in results"
@@ -69,71 +69,68 @@
       >
         {{ r.surname }}
       </div>
-      <div
-        v-if="tooltip"
-        class="absolute px-5 pt-8 overflow-y-hidden bg-white"
-        style="transform: translateY(-50%); top: 50%"
-        :style="{ width: $mq === 'mobile' ? '' : '450px', height: '400px' }"
-      >
-        <div class="font-bold body1" id="header">{{ groupBy.surname }}</div>
-        <img
-          :src="X"
-          class="absolute top-0 right-0 p-3 cursor-pointer"
-          @click="tooltip = false"
-        />
-        <div id="body" class="flex pt-5 text-left">
-          <div class="flex-1 body6">
-            <div id="title" class="font-bold text-purple-400">
-              ระดับท้องถิ่น
+    </div>
+    <div
+      v-if="tooltip"
+      class="absolute px-5 pt-8 overflow-y-hidden bg-white"
+      style="transform: translate(-50%, -50%); top: 50%; left: 50%"
+      :style="{ width: $mq === 'mobile' ? '90%' : '450px', height: '400px' }"
+    >
+      <div class="font-bold body1" id="header">{{ groupBy.surname }}</div>
+      <img
+        :src="X"
+        class="absolute top-0 right-0 p-3 cursor-pointer"
+        @click="tooltip = false"
+      />
+      <div id="body" class="flex pt-5 text-left">
+        <div class="flex-1 body6">
+          <div id="title" class="font-bold text-purple-400">
+            ระดับท้องถิ่น
 
-              <div id="circle" class="flex my-2">
-                <div
-                  v-for="i in groupBy['ท้องถิ่น'].length"
-                  :key="i"
-                  class="mr-1 bg-purple-400 rounded-full"
-                  style="width: 10px; height: 10px"
-                ></div>
-              </div>
-            </div>
-            <div id="body" class="overflow-y-auto" style="height: 250px">
-              <div v-for="(item, index) in groupBy['ท้องถิ่น']" :key="item.id">
-                <span class="flex font-bold">
-                  <p>{{ index + 1 }}.</p>
-                  <p>{{ item.name }}</p>
-                  <p class="ml-1">{{ item.surname }}</p>
-                </span>
-                <p>{{ item.position }}</p>
-                <p>พรรค {{ item.party ? item.party : '-' }}</p>
-                <p>ปี​​ {{ item.start_year }}</p>
-              </div>
+            <div id="circle" class="flex my-2">
+              <div
+                v-for="i in groupBy['ท้องถิ่น'].length"
+                :key="i"
+                class="mr-1 bg-purple-400 rounded-full"
+                style="width: 10px; height: 10px"
+              ></div>
             </div>
           </div>
-          <div class="flex-1 body6">
-            <div id="title" class="font-bold text-blue-400">
-              ระดับประเทศ
-              <div id="circle" class="flex flex-wrap my-2">
-                <div
-                  v-for="i in groupBy['ทั่วประเทศ'].length"
-                  :key="i"
-                  class="my-1 mr-1 bg-blue-400 rounded-full md:my-0"
-                  style="width: 10px; height: 10px"
-                ></div>
-              </div>
+          <div id="body" class="overflow-y-auto" style="height: 250px">
+            <div v-for="(item, index) in groupBy['ท้องถิ่น']" :key="item.id">
+              <span class="flex font-bold">
+                <p>{{ index + 1 }}.</p>
+                <p>{{ item.name }}</p>
+                <p class="ml-1">{{ item.surname }}</p>
+              </span>
+              <p>{{ item.position }}</p>
+              <p>พรรค {{ item.party ? item.party : '-' }}</p>
+              <p>ปี​​ {{ item.start_year }}</p>
             </div>
-            <div id="body" class="overflow-y-auto" style="height: 250px">
+          </div>
+        </div>
+        <div class="flex-1 body6">
+          <div id="title" class="font-bold text-blue-400">
+            ระดับประเทศ
+            <div id="circle" class="flex flex-wrap my-2">
               <div
-                v-for="(item, index) in groupBy['ทั่วประเทศ']"
-                :key="item.id"
-              >
-                <span class="flex font-bold">
-                  <p>{{ index + 1 }}.</p>
-                  <p>{{ item.name }}</p>
-                  <p class="ml-1">{{ item.surname }}</p>
-                </span>
-                <p>{{ item.position }}</p>
-                <p>พรรค {{ item.party ? item.party : '-' }}</p>
-                <p>ปี​​ {{ item.start_year }}</p>
-              </div>
+                v-for="i in groupBy['ทั่วประเทศ'].length"
+                :key="i"
+                class="my-1 mr-1 bg-blue-400 rounded-full"
+                style="width: 10px; height: 10px"
+              ></div>
+            </div>
+          </div>
+          <div id="body" class="overflow-y-auto" style="height: 250px">
+            <div v-for="(item, index) in groupBy['ทั่วประเทศ']" :key="item.id">
+              <span class="flex font-bold">
+                <p>{{ index + 1 }}.</p>
+                <p>{{ item.name }}</p>
+                <p class="ml-1">{{ item.surname }}</p>
+              </span>
+              <p>{{ item.position }}</p>
+              <p>พรรค {{ item.party ? item.party : '-' }}</p>
+              <p>ปี​​ {{ item.start_year }}</p>
             </div>
           </div>
         </div>
@@ -214,6 +211,20 @@ export default {
         this.results = _.filter(this.categories, (c) =>
           newValue.every((n) => c[n] === 1)
         )
+        if (newValue.length === 4) {
+          this.fontSize = '7vw'
+        } else if (
+          newValue.length === 3 &&
+          newValue.indexOf('present_local') != -1
+        ) {
+          this.fontSize = '6vw'
+        } else if (newValue.length === 2) {
+          this.fontSize = '3vw'
+        } else if (newValue.length === 1) {
+          this.fontSize = '2vw'
+        } else if (newValue.indexOf('present_local') === -1) {
+          this.fontSize = '3vw'
+        }
       },
     },
   },

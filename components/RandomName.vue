@@ -11,8 +11,12 @@
       v-if="nav_bar"
     >
       <div class="flex items-center">
-        <div class="ml-3 text-white cursor-pointer md:ml-0">Home</div>
-        <div class="ml-5 text-white cursor-pointer">about</div>
+        <NuxtLink to="/" class="ml-3 text-white cursor-pointer md:ml-0"
+          >Home</NuxtLink
+        >
+        <NuxtLink to="/about" class="ml-5 text-white cursor-pointer"
+          >about</NuxtLink
+        >
       </div>
     </navigation-bar>
     <div id="random-title-wrapper" class="text-white duration-500 opacity-100">
@@ -177,7 +181,7 @@
             >
               แล้วประชาชนจะมั่นใจได้อย่างไร กับการเมืองไทยที่มีระบบเครือญาติ
             </div>
-            <div id="body-confident">
+            <div id="body-confident" class="pb-16">
               <div
                 v-for="item in confident"
                 :key="item.id"
@@ -186,6 +190,26 @@
                 <p class="pt-16 font-bold">{{ item.title }}</p>
                 <p class="pt-5">{{ item.body }}</p>
               </div>
+            </div>
+            <div id="bottom" class="flex justify-center pb-16 mt-16">
+              <div
+                class="px-4 py-3 mx-2 rounded"
+                style="border: 1px solid #000000"
+              >
+                อ่านบทความเพิ่มเติม
+              </div>
+              <div
+                class="px-4 py-3 mx-2 rounded"
+                style="border: 1px solid #000000"
+              >
+                ดาวน์โหลดข้อมูล
+              </div>
+            </div>
+            <div id="sharer" class="flex justify-center pb-20 mt-16">
+              <social-sharer></social-sharer>
+            </div>
+            <div id="footer" class="mt-5 ">
+              <elect-footer></elect-footer>
             </div>
           </div>
         </div>
