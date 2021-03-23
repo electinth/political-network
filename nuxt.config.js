@@ -4,9 +4,9 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  generate: {
-    dir: 'docs',
-  },
+  // generate: {
+  //   dir: 'docs',
+  // },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'political-network',
