@@ -5,7 +5,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   generate: {
-    dir: 'doc',
+    dir: 'docs',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
