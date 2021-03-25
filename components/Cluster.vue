@@ -71,7 +71,11 @@
         <div
           id="card-surname"
           class="flex flex-col px-5 mx-auto mt-10 overflow-hidden rounded-lg shadow md:mt-0"
-          style="width: 320px; max-height: 480px"
+          style="width: 320px"
+          :style="{
+            height: $mq === 'mobile' ? '400px' : '',
+            maxHeight: $mq === 'mobile' ? '' : '480px',
+          }"
         >
           <div id="title" class="pt-5 font-bold body1">
             {{ selected_district }}
