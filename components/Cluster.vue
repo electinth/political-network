@@ -33,7 +33,11 @@
       <span class="flex"
         ><p>พบว่ามีการกระจุกตัวของอิทธิพลทางการเมือง</p>
         <p class="font-bold">
-          {{ type === 'surname-cluster' ? 'สูง' : 'ต่ำ' }}
+          {{
+            type === 'surname-cluster'
+              ? heightLow(HHI[0].HHI_surname)
+              : heightLow(HHI[0].HHI_party)
+          }}
         </p></span
       >
     </div>
@@ -228,6 +232,15 @@ export default {
   methods: {
     openInfo() {
       this.is_open = !this.is_open
+    },
+    heightLow(HHI) {
+      if (HHI <= 1 && HHI > 0.7) {
+        return 'สูง'
+      } else if (HHI < 0.69 && HHI > 0.31) {
+        return 'ปานกลาง'
+      } else {
+        return 'ต่ำ'
+      }
     },
   },
 }
