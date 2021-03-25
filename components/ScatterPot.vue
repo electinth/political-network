@@ -75,14 +75,17 @@ export default {
   },
 
   mounted() {
-    let data = this.HHI_Overall
-    let drop = _.remove(data, (d) => d.district === this.selected_district)
-    this.SET_HHI_OVERALL([...data, ...drop])
-
+    this.renew_data()
     this.draw()
   },
   methods: {
     ...mapMutations(['SET_HHI_OVERALL', 'SET_DISTRICT']),
+    renew_data() {
+      let data = this.HHI_Overall
+      let drop = _.remove(data, (d) => d.district === this.selected_district)
+      this.SET_HHI_OVERALL([...data, ...drop])
+    },
+
     draw() {
       let w = this.$mq === 'mobile' ? 330 : 460
       let h = this.$mq === 'mobile' ? 390 : 400
@@ -95,6 +98,7 @@ export default {
         .select('#pot')
         .append('svg')
         .attr('class', 'mx-auto mt-16')
+        .attr('id', 'pot_svg')
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
         .append('g')
@@ -141,7 +145,6 @@ export default {
           } else {
             return '#BDBDBD'
           }
-          console.log(d)
           return 'red'
         })
         .style('cursor', 'pointer')
@@ -229,6 +232,9 @@ export default {
   },
   watch: {
     selected_district(newValue, oldValue) {
+      this.renew_data()
+      d3.select('#pot_svg').remove()
+      this.draw()
       this.svg
         .selectAll(`.${oldValue}`)
         .style('stroke', 'black')
