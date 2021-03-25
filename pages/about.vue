@@ -45,9 +45,15 @@
         <div class="mt-5 body3">
           <p>
             • รายชื่อผู้บริหารและสมาชิกสภาท้องถิ่น ปี พ.ศ. 2555-2562 นำมาจาก
-            ระบบข้อมูลกลางองค์กรปกครองส่วนท้องถิ่น :
-            http://infov1.dla.go.th/public/surveyInfo.do โดยมีข้อจำกัดของข้อมูล
-            ได้แก่
+
+            <a
+              href="http://infov1.dla.go.th/public/surveyInfo.do"
+              target="_blank"
+              class="underline"
+            >
+              ระบบข้อมูลกลางองค์กรปกครองส่วนท้องถิ่น
+            </a>
+            โดยมีข้อจำกัดของข้อมูล ได้แก่
           </p>
           <p class="ml-10">
             - ไม่มีข้อมูลฝ่ายบริหาร (นายก อบจ. และทีมงาน) ของจังหวัด เชียงใหม่,
@@ -55,8 +61,14 @@
           </p>
           <p>
             • รายชื่อ นายก อบจ. และ ส. อบจ. ที่ได้รับเลือกในปีพ.ศ. 2563 มาจาก
-            สำนักงานคณะกรรมการการเลือกตั้ง (กกต.) :
-            https://www.ect.go.th/ect_th/news_all.php?cid=256
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.ect.go.th/ect_th/news_all.php?cid=256"
+            >
+              สำนักงานคณะกรรมการการเลือกตั้ง (กกต.)</a
+            >
+
             โดยมีข้อจำกัดของข้อมูล ได้แก่
           </p>
           <p class="ml-10">
@@ -71,18 +83,57 @@
             • สังกัดพรรคของ นายก อบจ. และ สภา อบจ. ที่ได้รับเลือกในปีพ.ศ. 2563
             มาจาก สังกัดสันนิษฐานของ Rocket Media Lab :
           </p>
-          <p>
+          <a
+            class="block underline truncate"
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/d/12E3aQGJ9E3ggXy4GYpRuI3lFDz9_CgEOQ01eaLFnBIg"
+          >
             <!-- note -->
             https://docs.google.com/spreadsheets/d/12E3aQGJ9E3ggXy4GYpRuI3lFDz9_CgEOQ01eaLFnBIg
-          </p>
+          </a>
           <p>• รายชื่อ ส.ส. และ ครม. (พ.ศ. 2535-2562) มาจาก</p>
-          <p class="ml-10">
-            - They Work for Us : https://theyworkforus.elect.in.th
+          <p>
+            <a
+              class="flex ml-10"
+              href="https://theyworkforus.elect.in.th"
+              target="_blank"
+            >
+              -
+              <p class="underline">They Work for Us</p>
+            </a>
           </p>
-          <p class="ml-10">
-            - Cabinet Dynasty : https://elect.in.th/cabinet-dynasty
+          <p>
+            <a
+              class="flex ml-10"
+              href="https://elect.in.th/cabinet-dynasty"
+              target="_blank"
+            >
+              -
+              <p class="underline">Cabinet Dynasty</p>
+            </a>
           </p>
-          <p class="ml-10">- https://th.wikipedia.org/wiki/สภาผู้แทนราษฎรไทย</p>
+          <p>
+            <a
+              class="flex ml-10"
+              href="https://th.wikipedia.org/wiki/สภาผู้แทนราษฎรไทย"
+              target="_blank"
+              >-
+              <p class="underline">
+                https://th.wikipedia.org/wiki/สภาผู้แทนราษฎรไทย
+              </p></a
+            >
+          </p>
+          <p>
+            <a
+              class="flex ml-10"
+              href="https://th.wikipedia.org/wiki/คณะรัฐมนตรีไทย"
+              target="_blank"
+              >-
+              <p class="underline">
+                https://th.wikipedia.org/wiki/คณะรัฐมนตรีไทย
+              </p></a
+            >
+          </p>
         </div>
         <div class="mt-16 body-3">
           <p class="font-bold">
@@ -95,42 +146,210 @@
             วารสารการเมือง การบริหาร และกฎหมาย, ปีที่ 6, ฉบับที่ 3 (ก.ย.-ธ.ค.
             2557), หน้า 131-152.
           </p>
-          <p>• วารสารสถาบันพระปกเกล้า (May 2013 - August 2013)</p>
           <p>
-            • รู้ไหมผมลูกใคร? ชำแหละ ‘ตระกูลการเมือง’ สืบทอด-ผูกขาด-สูญพันธุ์
-            ในวัฏจักรประชาธิปไตยไทย – THE STANDARD
-          </p>
-          <p>• ตระกูลการเมือง กับ การลดต้นทุนของนักการเมือง (ตอนที่ 1)</p>
-          <p>• ตระกูลการเมือง กับ การลดต้นทุนของนักการเมือง (ตอนที่ 2)</p>
-          <p>
-            • มองหาแก่น ‘ชนชั้นนำ’ สไตล์เซาธ์อีสเอเชีย อำนาจ นิยม ธุรกิจการเมือง
-            และระบบอุปถัมภ์
+            •
+            <a
+              href="https://so06.tci-thaijo.org/index.php/kpi_journal/issue/view/16777"
+              target="_blank"
+              class="underline"
+              >วารสารสถาบันพระปกเกล้า (May 2013 - August 2013)</a
+            >
           </p>
           <p>
-            • เลือกตั้งท้องถิ่น : ว่าที่นายก อบจ. 76 จังหวัด ใครอยู่ใต้เงา
-            “บ้านใหญ่” ใครคือหน้าใหม่ล้มแชมป์
+            •<a
+              target="_blank"
+              class="underline"
+              href="https://thestandard.co/news-politics-political-dynasty-stithorn-thananithichot/"
+            >
+              รู้ไหมผมลูกใคร? ชำแหละ ‘ตระกูลการเมือง’ สืบทอด-ผูกขาด-สูญพันธุ์
+              ในวัฏจักรประชาธิปไตยไทย – THE STANDARD</a
+            >
           </p>
-          <p>• การเลือกตั้ง อบจ.’63 บอกอะไรเรา</p>
-          <p>• เอ็กซเรย์ ตัวเต็งนายก อบจ. เครือข่ายการเมือง-ธุรกิจ</p>
-          <p>• หอเกียรติยศ ฯพณฯ บรรหาร ศิลปอาชา (suphan.biz)</p>
           <p>
-            • ย้อนประวัติ "ปู่ชัย" จาก "กำนัน" เจ้าของโรงโม่ สู่จุดสูงสุด
-            "ประธานสภาฯ"
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://thaipublica.org/2013/12/political-families"
+              >ตระกูลการเมือง กับ การลดต้นทุนของนักการเมือง (ตอนที่ 1)</a
+            >
           </p>
           <p>
-            • เนวิน ชิดชอบ แห่งบุรีรัมย์จาก "นักเลงเซราะกราว" สู่ผู้มากบารมี
+            •<a
+              target="_blank"
+              class="underline"
+              href="https://thaipublica.org/2013/12/political-family-2/"
+            >
+              ตระกูลการเมือง กับ การลดต้นทุนของนักการเมือง (ตอนที่ 2)</a
+            >
           </p>
-          <p>• ฉากชีวิต ‘ไชยา’ บ้านใหญ่ ‘สะสมทรัพย์’</p>
-          <p>• นักการเมืองถิ่น จังหวัดสุพรรณบุรี, สถาบันพระปกเกล้า</p>
-          <p>• ตำนาน กลุ่มวาดะห์</p>
           <p>
-            • บันทึก "อาคม เอ่งฉ้วน" ตราไว้ในแผ่นดิน ภารกิจส.ส.เพื่อ "กระบี่"
-            บ้านเกิด
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://themomentum.co/elites-in-southeast-asia-lao-malaysia-myanmar-cambodia-vietnam/"
+              >มองหาแก่น ‘ชนชั้นนำ’ สไตล์เซาธ์อีสเอเชีย อำนาจ นิยม
+              ธุรกิจการเมือง และระบบอุปถัมภ์</a
+            >
           </p>
-          <p>‘ผาด อังกินันทน์’ ต้นตระกูลการเมืองค่ายอังกินันทน์</p>
-          <p>• สิ้นยุค "เดอะแป๋ง" "อังกินันทน์" ต้องไปต่อ?</p>
-          <p>• รู้มั้ย 'ไตรศุลี' ลูกบ้านใหญ่ศรีสะเกษ</p>
-          <p>• ลุงตู่..รู้จักมั้ย? “เจ๊สมทรง” บ้านใหญ่ “ยุดยา”</p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.bbc.com/thai/thailand-55394623"
+              >เลือกตั้งท้องถิ่น : ว่าที่นายก อบจ. 76 จังหวัด ใครอยู่ใต้เงา
+              “บ้านใหญ่” ใครคือหน้าใหม่ล้มแชมป์</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.the101.world/after-the-provincial-election-63/"
+              >การเลือกตั้ง อบจ.’63 บอกอะไรเรา</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.thansettakij.com/content/politics/458263"
+              >เอ็กซเรย์ ตัวเต็งนายก อบจ. เครือข่ายการเมือง-ธุรกิจ</a
+            >
+          </p>
+          <p>
+            •<a
+              target="_blank"
+              class="underline"
+              href="http://www.suphan.biz/Banharnroom.htm"
+            >
+              หอเกียรติยศ ฯพณฯ บรรหาร ศิลปอาชา (suphan.biz)</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.sanook.com/news/8018030/"
+              >ย้อนประวัติ "ปู่ชัย" จาก "กำนัน" เจ้าของโรงโม่ สู่จุดสูงสุด
+              "ประธานสภาฯ"</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              href="https://thepeople.co/newin-chidchob-buriram-province/"
+              target="_blank"
+              class="underline"
+              >เนวิน ชิดชอบ แห่งบุรีรัมย์จาก "นักเลงเซราะกราว" สู่ผู้มากบารมี</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              href="https://thepeople.co/chaiya-sasomsub/"
+              target="_blank"
+              class="underline"
+              >ฉากชีวิต ‘ไชยา’ บ้านใหญ่ ‘สะสมทรัพย์’</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="http://kpi.ac.th/media_kpiacth/pdf/M8_103.pdf"
+              >นักการเมืองถิ่น จังหวัดสุพรรณบุรี, สถาบันพระปกเกล้า</a
+            >
+          </p>
+          <p>
+            •<a
+              target="_blank"
+              class="underline"
+              href="https://www.voicetv.co.th/read/63528"
+            >
+              ตำนาน กลุ่มวาดะห์</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.thansettakij.com/content/politics/440482"
+              >บันทึก "อาคม เอ่งฉ้วน" ตราไว้ในแผ่นดิน ภารกิจส.ส.เพื่อ "กระบี่"
+              บ้านเกิด</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="http://petchpoom.com/%E0%B8%9C%E0%B8%B2%E0%B8%94-%E0%B8%AD%E0%B8%B1%E0%B8%87%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%99%E0%B9%8C-%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%95%E0%B8%A3/"
+              >‘ผาด อังกินันทน์’ ต้นตระกูลการเมืองค่ายอังกินันทน์</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.komchadluek.net/news/scoop/390790"
+              >สิ้นยุค "เดอะแป๋ง" "อังกินันทน์" ต้องไปต่อ?</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.komchadluek.net/news/scoop/433089"
+              >รู้มั้ย 'ไตรศุลี' ลูกบ้านใหญ่ศรีสะเกษ
+            </a>
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.komchadluek.net/news/people/296170"
+              >ลุงตู่..รู้จักมั้ย? “เจ๊สมทรง” บ้านใหญ่ “ยุดยา”</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.firstojs.com/index.php/nbj/article/download/638/372"
+              >เครือข่ายอำนาจและการสะสมทุนในจังหวัดชัยนาท:
+              วิเคราะห์ในเชิงเศรษฐศาสตร์การเมือง</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.tci-thaijo.org/index.php/gjournal-ksu/article/download/163796/118585"
+              >ประวัติศาสตร์และเครือข่ายอำนาจการเมืองของสมาชิกสภาผู้แทนราษฎรในจังหวัดอุดรธานี</a
+            >
+          </p>
+          <p>
+            •
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.sanook.com/news/7805358"
+              >ปิดตำนาน "กำนันเป๊าะ" สมชาย คุณปลื้ม เจ้าพ่อเมืองชล
+            </a>
+          </p>
         </div>
         <p class="mt-20 font-bold body1">นโยบายการนำข้อมูลไปใช้ต่อ</p>
         <p class="mt-10 body3">
@@ -149,7 +368,21 @@
         <p class="mt-16 font-bold body1">อาสาสมัครร่วมพัฒนา</p>
         <div class="mt-10 body3">
           <p class="font-bold">เขียนโปรแกรม</p>
-          <p class="mt-2">MEEPOOH , pianpwk</p>
+          <p class="mt-2">
+            <a
+              target="_blank"
+              class="underline"
+              href="https://github.com/MEEP00H"
+              >MEEPOOH</a
+            >
+            ,
+            <a
+              target="_blank"
+              class="underline"
+              href="http://github.com/pianpwk"
+              >pianpwk</a
+            >
+          </p>
         </div>
         <div class="mt-10 body3">
           <p class="font-bold">ออกแบบ</p>
@@ -157,15 +390,46 @@
         </div>
         <div class="mt-10 body3">
           <p class="font-bold">สืบค้นและรวบรวมข้อมูล</p>
-          <p class="mt-2">pianpwk, ธนิสรา เรืองเดช, ศุภิสรา อิศรานุกูล</p>
+          <p class="mt-2">
+            <a
+              target="_blank"
+              class="underline"
+              href="http://github.com/pianpwk"
+              >pianpwk</a
+            >,
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.linkedin.com/in/thanisara-r/"
+              >ธนิสรา</a
+            >
+            เรืองเดช, ศุภิสรา อิศรานุกูล
+          </p>
         </div>
         <div class="mt-10 body3">
           <p class="font-bold">บรรณาธิการ</p>
-          <p class="mt-2">ธนิสรา เรืองเดช</p>
+          <p class="mt-2">
+            <a
+              target="_blank"
+              class="underline"
+              href="https://www.linkedin.com/in/thanisara-r/"
+              >ธนิสรา เรืองเดช</a
+            >
+          </p>
         </div>
         <div class="mt-10 body3">
           <p class="font-bold">ประสานงานและจัดการอื่นๆ</p>
-          <p class="mt-2">Punch Up</p>
+          <p class="mt-2">
+            <a target="_blank" class="underline" href="https://punchup.world/"
+              >Punch Up</a
+            >
+          </p>
+        </div>
+        <div class="mt-10 body3">
+          โปรเจกต์ Political Network ได้รับการสนับสนุนทุนในการดำเนินงานจาก
+          <a target="_blank" class="underline" href="https://www.ned.org/">National Endowment for Democracy (NED)</a>
+          ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล ออกแบบ พัฒนาเว็บไซต์ ประสานงาน
+          บริหารจัดการ ตลอดจนการจัด Meetup เพื่อดำเนินโครงการ
         </div>
 
         <p class="mt-16 font-bold body1">ร่วมพัฒนาโครงการ</p>
