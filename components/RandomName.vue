@@ -16,7 +16,10 @@
     </div>
     <div id="random-wrapper" class="w-full" style="transition-duration: 1.5s">
       <div id="surname-wrapper">
-        <div class="overflow-hidden text-yellow-400 whitespace-no-wrap surname" id="surname">
+        <div
+          class="overflow-hidden text-yellow-400 whitespace-no-wrap surname"
+          id="surname"
+        >
           {{ sampling[counter].surname }}
         </div>
         <div
@@ -80,23 +83,32 @@
           <Cluster type="party-cluster" />
           <ScatterPot />
           <CheckSurname />
-          <Inpower 
-          />
+          <Inpower />
           <div
             id="relation"
-            class="flex flex-col items-center justify-center h-screen text-white bg-black-400"
+            class="relative flex flex-col items-center justify-center h-screen overflow-hidden text-white bg-black-400"
           >
-            <div class="mx-5 font-bold md:mx-0 md:w-1/2 h1">
+            <div class="relative z-10 mx-5 font-bold md:mx-0 md:w-1/2 h1">
               ความสัมพันธ์ทางเครือญาติ และการครองอำนาจของตระกูลใหญ่
               ในระบบการเมืองไทย
             </div>
-            <div class="mx-5 mt-10 body2 md:w-1/2 md:mx-0">
+            <div class="relative z-10 mx-5 mt-10 body2 md:w-1/2 md:mx-0">
               เมื่อมีการเลือกตั้งหรือวาระทางการเมือง
               เรามักจะคุ้นเคยกับชื่อตระกูลที่ทรงอิทธิพลทางการเมือง
               หรือที่เรียกกันว่า “บ้านใหญ่”
               ซึ่งตระกูลเหล่านี้มักเป็นตระกูลที่ทรงอิทธิพลทางการเมืองมาเป็น
               เวลานาน และมีความยึดโยงกับพื้นที่ในแต่ละจังหวัด
             </div>
+
+            <lottie
+              class="absolute inset-0 z-0"
+              :style="{ transform: $mq === 'mobile'? 'scale(4)':'scale(1.5)' }"
+              id="lottie_relation"
+              :options="{
+                animationData: relation,
+                loop: true,
+              }"
+            />
           </div>
           <div id="why" class="pt-24 bg-white">
             <div id="title" class="mx-5 font-bold h3 md:w-5/12 md:mx-auto">
@@ -119,7 +131,8 @@
             </div>
             <div
               id="body"
-              class="flex flex-col py-20 mx-auto md:flex-row" :style="{width:$mq ==='mobile'?'95%':'75%'}"
+              class="flex flex-col py-20 mx-auto md:flex-row"
+              :style="{ width: $mq === 'mobile' ? '95%' : '75%' }"
             >
               <div
                 v-for="item in country"
@@ -209,6 +222,8 @@
 <script>
 import _ from 'lodash'
 import { mapState, mapMutations } from 'vuex'
+import Lottie from 'vue-lottie/src/lottie.vue'
+import * as relation from '~/assets/images/relation.json'
 export default {
   data() {
     return {
@@ -220,6 +235,7 @@ export default {
       diff_top: 0,
       is_wrapper: false,
       filter_name: [],
+      relation: relation.default,
       why: [
         {
           title: 'มีทุนทางเศรษฐกิจ',
@@ -294,6 +310,9 @@ export default {
         },
       ],
     }
+  },
+  components: {
+    Lottie,
   },
   computed: {
     ...mapState(['categories', 'top_20', 'top_20_name', 'selected']),
