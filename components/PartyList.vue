@@ -11,12 +11,7 @@
       หมายเหตุ: ข้อมูลพรรคของ นายกและ ส.อบจ. 63 เป็นสังกัดสันนิษฐานจาก Rocket
       Media Lab
     </div>
-    <div
-      v-for="(party, key, id) in party_list"
-      :key="id"
-      class="my-10"
-      id="party-list"
-    >
+    <div v-for="(p, id) in party_list" :key="id" class="my-10" id="party-list">
       <div
         id="list"
         class="relative flex w-10/12 pb-3 mx-auto md:w-1/2 md:pb-0"
@@ -25,7 +20,7 @@
           id="party-name"
           class="flex items-center flex-1 font-bold text-left"
         >
-          {{ key }}
+          {{ p.party }}
         </div>
         <div
           id="party-images"
@@ -33,7 +28,7 @@
           :style="{ flex: $mq === 'mobile' ? 1 : 2 }"
         >
           <div
-            v-for="(people, index) in party"
+            v-for="(people, index) in p.data"
             :key="index"
             class="mx-1"
             style="width: 40px"
@@ -47,9 +42,7 @@
         </div>
 
         <div
-          v-if="
-            key != Object.keys(party_list)[Object.keys(party_list).length - 1]
-          "
+          v-if="id != party_list.length - 1"
           id="underline"
           class="absolute z-10 w-full border-b border-black-400"
           style="bottom: -20px"
@@ -74,7 +67,8 @@ export default {
   },
   data() {
     return {
-      party_list: {},
+      party_list: [],
+      list: [],
     }
   },
   mounted() {
@@ -82,6 +76,9 @@ export default {
     for (const key in this.party_list) {
       this.party_list[key] = _.uniqBy(this.party_list[key], 'name')
     }
+    _.forEach(this.party_list, (p, i) => this.list.push({ party: i, data: p }))
+    let drop = _.remove(this.list, (d) => d.party === 'ไม่สังกัดพรรค')
+    this.party_list = [...this.list, ...drop]
   },
   methods: {
     replaceByDefault(name, surname) {
