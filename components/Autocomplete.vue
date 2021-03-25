@@ -1,12 +1,18 @@
 <template>
   <div id="autocomplete" class="relative">
+    <div
+      class="absolute right-0 pr-5 cursor-pointer"
+      style="top: 50%"
+      @click="cancle"
+    >
+      <img :src="cancel" style="width: 15px; transform: translateY(-50%)" />
+    </div>
     <input
       type="text"
       @input="onChange"
       v-model="search"
       @keydown.enter="onEnter"
-      class="flex mx-3 text-center outline-none"
-      style="border-bottom: 1px solid black"
+      class="flex mx-3 text-center border-b outline-none border-black-400"
       :placeholder="holder"
     />
     <ul id="autocomplete-results" v-show="isOpen" class="autocomplete-results">
@@ -58,6 +64,7 @@ export default {
       search: '',
       isLoading: false,
       arrowCounter: 0,
+      cancel: require('~/assets/images/cancel.svg'),
     }
   },
 
@@ -110,6 +117,15 @@ export default {
         this.arrowCounter = -1
       }
     },
+    cancle() {
+      this.search = ''
+      this.isOpen = !this.isOpen
+      this.results = this.items.filter((item) => {
+        return (
+          item['จังหวัด'].toLowerCase().indexOf(this.search.toLowerCase()) > -1
+        )
+      })
+    },
   },
   watch: {
     items: function (val, oldValue) {
@@ -136,18 +152,17 @@ export default {
 input::-webkit-input-placeholder {
   opacity: 0.3;
 }
-input {
-  @media screen and (max-width: 767px) {
-    width: 150px;
-  }
-}
+// input {
+//   @media screen and (max-width: 767px) {
+//     width: 150px;
+//   }
+// }
 .autocomplete-results {
   padding: 0;
   margin: 0;
-  height: fit-content;
+  height: max-content;
   max-height: 40vh;
   overflow: auto;
-  // width: 100%;
   min-width: 170px;
   border: 1px solid #787982;
   position: absolute;

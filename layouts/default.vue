@@ -1,11 +1,33 @@
 <template>
   <div>
+    <navigation-bar
+      dark="true"
+      class="absolute top-0 z-50 w-full px-8 bg-black-400"
+    >
+      <div class="flex items-center">
+        <NuxtLink
+          to="/"
+          class="ml-3 text-white cursor-pointer md:ml-0 hover:opacity-100"
+          :class="$route.name === 'index' ? 'opacity-100' : 'opacity-75'"
+          >Home</NuxtLink
+        >
+        <NuxtLink
+          to="/about"
+          class="ml-5 text-white cursor-pointer hover:opacity-100"
+          :class="$route.name === 'about' ? 'opacity-100' : 'opacity-75'"
+          >About</NuxtLink
+        >
+      </div>
+    </navigation-bar>
     <Nuxt />
   </div>
 </template>
+<script>
+export default {}
+</script>
 
 <style>
-html {
+/* html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
@@ -15,7 +37,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-}
+} */
 
 *,
 *::before,

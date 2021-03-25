@@ -1,6 +1,6 @@
 <template>
   <div class="relative mt-16" id="check-surname">
-    <div id="title" class="font-bold h1">
+    <div id="title" class="mx-4 font-bold h1 md:mx-0">
       <p v-if="$mq != 'mobile'">นอกจากตระกูล{{ selected.surname }}</p>
       <span v-if="$mq === 'mobile'">
         <p>นอกจากตระกูล</p>
@@ -11,14 +11,14 @@
     </div>
     <div
       id="check-box"
-      class="flex flex-wrap justify-start w-3/4 mx-auto mt-16 md:justify-center md:w-full"
+      class="flex flex-wrap justify-start w-10/12 mx-auto mt-16 md:justify-center md:w-full"
     >
       <div
         id="target"
         v-for="(target, index) in targets"
         :key="'target' + index"
-        class="flex justify-center mx-3 my-2 md:my-0"
-        style="width: fit-content"
+        class="flex justify-center py-2 mx-3 md:py-1 md:my-0"
+        style="width: max-content"
       >
         <label class="flex flex-row check">
           <p
@@ -56,14 +56,14 @@
     </div>
     <div
       id="name"
-      class="relative flex flex-wrap justify-center mx-10 mt-10 overflow-hidden"
+      class="relative flex flex-wrap justify-center py-5 mx-10 mt-10 overflow-hidden"
       :style="{ fontSize: fontSize }"
     >
       <div
         v-for="(r, i) in results"
         :key="i"
         @click="active_tooltip(r)"
-        style="width: fit-content; height: fit-content; font-family: 'Tiga'"
+        style="width: max-content; height: max-content; font-family: 'Tiga'"
         :style="{ 'line-height': '100%' }"
         class="mx-2 cursor-pointer hover:bg-black-400 hover:text-yellow-400 li"
       >
@@ -72,9 +72,10 @@
     </div>
     <div
       v-if="tooltip"
+      id="surname_checklist"
       class="absolute px-5 pt-8 overflow-y-hidden bg-white"
-      style="transform: translate(-50%, -50%); top: 50%; left: 50%"
-      :style="{ width: $mq === 'mobile' ? '90%' : '450px', height: '400px' }"
+      style="transform: translate(-50%, -50%); left: 50%; top: 70%"
+      :style="{ width: $mq === 'mobile' ? '90%' : '450px', minHeight: '400px' }"
     >
       <div class="font-bold body1" id="header">{{ groupBy.surname }}</div>
       <img
@@ -91,7 +92,7 @@
               <div
                 v-for="i in groupBy['ท้องถิ่น'].length"
                 :key="i"
-                class="mr-1 bg-purple-400 rounded-full"
+                class="mt-1 mr-1 bg-purple-400 rounded-full"
                 style="width: 10px; height: 10px"
               ></div>
             </div>
@@ -116,7 +117,7 @@
               <div
                 v-for="i in groupBy['ทั่วประเทศ'].length"
                 :key="i"
-                class="my-1 mr-1 bg-blue-400 rounded-full"
+                class="mt-1 mr-1 bg-blue-400 rounded-full"
                 style="width: 10px; height: 10px"
               ></div>
             </div>
@@ -141,7 +142,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-
+import * as d3 from 'd3'
 export default {
   data() {
     return {
@@ -199,7 +200,7 @@ export default {
         ทั่วประเทศ: [...ครม, ...สส],
       }
       _.assign(this.groupBy, { surname: hover.surname })
-      console.log(this.groupBy)
+      // d3.select('#surname_checklist').style('top', '20px')
     },
   },
   watch: {

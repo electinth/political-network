@@ -2,7 +2,7 @@
   <div
     id="PassAndFuture"
     class="flex flex-col m-auto mt-8 md:flex-row"
-    style="width: fit-content"
+    style="width: max-content"
   >
     <div
       class="flex-1 pb-10 md:pb-0 md:px-2 xl:px-8"
@@ -66,8 +66,9 @@
         </div>
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-blue-400 rounded-full bubble body"
+            class="px-3 mb-6 font-bold rounded-full bubble body"
             style="border: 1px solid #1861f0"
+            :class="role8.length ? 'bg-blue-400 text-white' : ' text-blue-400'"
           >
             ครม.
           </div>
@@ -137,8 +138,9 @@
         </div>
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-white bg-blue-400 rounded-full bubble body"
+            class="px-3 mb-6 font-bold rounded-full bubble body"
             style="border: 1px solid #1861f0"
+            :class="role8.length ? 'bg-blue-400 text-white' : ' text-blue-400'"
           >
             ครม.
           </div>

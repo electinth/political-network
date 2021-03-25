@@ -1,19 +1,5 @@
 <template>
   <div id="about" class="relative overflow-x-hidden">
-    <navigation-bar
-      dark="true"
-      class="absolute top-0 w-full px-8 bg-black-400"
-      style="transition-duration: 1300ms"
-    >
-      <div class="flex items-center">
-        <NuxtLink to="/" class="ml-3 text-white cursor-pointer md:ml-0"
-          >Home</NuxtLink
-        >
-        <NuxtLink to="/about" class="ml-5 text-white cursor-pointer"
-          >about</NuxtLink
-        >
-      </div>
-    </navigation-bar>
     <div id="body" style="padding-top: 60px">
       <div id="title" class="mx-5 mt-10 md:mx-auto md:w-1/2">
         <p class="font-bold text-center h2">เกี่ยวกับโครงการ</p>
@@ -26,15 +12,12 @@
           ‘ตระกูลเจ้าถิ่น’ ย่อมปรากฏขึ้นในหลายๆ พื้นที่
         </p>
 
-        <p class="mt-10 body3">
-          คงยากที่จะปฏิเสธเรื่องของ ความสัมพันธ์ทางเครือญาติ และ
-          การครองอำนาจของตระกูลใหญ่ ในระบบการเมืองไทย ในโปรเจ็กต์ ‘Political
-          Network’ ที่สุดของตระกูลการเมืองไทย ถิ่นไหน.. ใครครอง นี้ ทีมงาน ELECT
-          จึงทดลองหยิบเอาข้อมูลของนักการเมืองระดับท้องถิ่นและระดับประเทศ
-          มาหาความสัมพันธ์ในเชิงเครือญาติร่วมกับเชิงพื้นที่
-          เพื่อแผ่ให้เห็นเครือข่ายของตระกูลต่างๆ
-          และระดับการผูกขาด-แข่งขันผ่านชุดข้อมูล
-        </p>
+        <p
+          class="mt-10 body3"
+          v-html="
+            'คงยากที่จะปฏิเสธเรื่องของ ความสัมพันธ์ทางเครือญาติ และการครองอำนาจของตระกูลใหญ่ ในระบบการเมืองไทย ในโปรเจ็กต์ <b>‘PoliticalNetwork’ ที่สุดของตระกูลการเมืองไทย ถิ่นไหน.. ใครครอง</b> นี้ ทีมงาน ELECTจึงทดลองหยิบเอาข้อมูลของนักการเมืองระดับท้องถิ่นและระดับประเทศมาหาความสัมพันธ์ในเชิงเครือญาติร่วมกับเชิงพื้นที่เพื่อแผ่ให้เห็นเครือข่ายของตระกูลต่างๆและระดับการแข่งขันในแต่ละพื้นที่ผ่านชุดข้อมูล'
+          "
+        ></p>
 
         <p class="mt-10 body3">
           อย่างไรก็ตาม ทีมงานเองก็ไม่อาจเป็นผู้สรุปได้ว่า การมีเครือญาติ อำนาจ
@@ -89,6 +72,7 @@
             มาจาก สังกัดสันนิษฐานของ Rocket Media Lab :
           </p>
           <p>
+            <!-- note -->
             https://docs.google.com/spreadsheets/d/12E3aQGJ9E3ggXy4GYpRuI3lFDz9_CgEOQ01eaLFnBIg
           </p>
           <p>• รายชื่อ ส.ส. และ ครม. (พ.ศ. 2535-2562) มาจาก</p>
@@ -172,7 +156,7 @@
           <p class="mt-2">น้ำใส ศุภวงศ์</p>
         </div>
         <div class="mt-10 body3">
-          <p class="font-bold">สืบค้นและรวบรวมข้อมู</p>
+          <p class="font-bold">สืบค้นและรวบรวมข้อมูล</p>
           <p class="mt-2">pianpwk, ธนิสรา เรืองเดช, ศุภิสรา อิศรานุกูล</p>
         </div>
         <div class="mt-10 body3">
@@ -199,7 +183,7 @@
       </div>
       <div
         class="px-4 py-3 mx-auto rounded"
-        style="border: 1px solid #000000; width: fit-content"
+        style="border: 1px solid #000000; width: max-content"
       >
         ดาวน์โหลดข้อมูล
       </div>

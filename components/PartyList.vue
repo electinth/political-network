@@ -8,18 +8,18 @@
       "
     />
     <div class="w-9/12 mx-auto mb-8 body6 md:w-full">
-      ข้อมูลพรรคของ นายกและสภา อบจ. 63 เป็นสังกัดสันนิษฐานจาก Rocket Media Lab
+      หมายเหตุ: ข้อมูลพรรคของ นายกและ ส.อบจ. 63 เป็นสังกัดสันนิษฐานจาก Rocket
+      Media Lab
     </div>
     <div
-      v-for="(party, key) in party_list"
-      :key="key"
-      class="my-3"
+      v-for="(party, key, id) in party_list"
+      :key="id"
+      class="my-10"
       id="party-list"
     >
       <div
         id="list"
-        v-if="key != null"
-        class="flex w-10/12 pb-3 mx-auto md:w-1/2 md:pb-0"
+        class="relative flex w-10/12 pb-3 mx-auto md:w-1/2 md:pb-0"
       >
         <div
           id="party-name"
@@ -45,6 +45,15 @@
             <div id="people-name" class="body6">{{ people.name }}</div>
           </div>
         </div>
+
+        <div
+          v-if="
+            key != Object.keys(party_list)[Object.keys(party_list).length - 1]
+          "
+          id="underline"
+          class="absolute z-10 w-full border-b border-black-400"
+          style="bottom: -20px"
+        />
       </div>
     </div>
   </div>

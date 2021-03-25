@@ -5,7 +5,7 @@
         <div
           class="flex flex-col items-center justify-center w-9/12 m-auto md:flex-row md:w-full"
         >
-          <p>เมื่อนำการผูกขาดของตระกูลและพรรคมาเทียบกัน จังหวัด</p>
+          <p>เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด</p>
           <Autocomplete
             :items="district"
             holder="เลือกจังหวัด"
@@ -16,18 +16,43 @@
           v-if="$mq != 'mobile'"
           class="mt-3"
           v-html="
-            'มีการผูกขาดของตระกูล <b>สูง</b> ขณะที่การผูกขาดของพรรค <b>ต่ำ</b>'
+            'พบว่ามีการกระจุกตัวของอิทธิพลทางการเมืองของตระกูล<b> สูง</b> ขณะที่ของพรรค<b> ต่ำ</b>'
           "
         />
         <span
           v-if="$mq === 'mobile'"
           v-html="
-            '<p>มีการผูกขาดของตระกูล <b>สูง</b></p><p>ขณะที่การผูกขาดของพรรค <b>ต่ำ</b></p>'
+            '<p> พบว่ามีการกระจุกตัวของ</p> <p>อิทธิพลทางการเมืองของตระกูล<b> สูง</b> </p>ขณะที่ของพรรค<b> ต่ำ</b>'
           "
         />
+
         <p class="mt-5 opacity-50 body5">(คลิกเพื่อดูจังหวัดอื่นๆ ได้)</p>
+        <div
+          id="scale-scatter"
+          class="relative flex mx-auto mt-10 body5"
+          style="width: 350px"
+        >
+          <div
+            class="absolute mx-auto"
+            :style="{
+              height: '5px',
+              width: '350px',
+              background:
+                'linear-gradient(90deg,#2ba3b4 0%,#bdbdbd 51.56%,#f15a29 100%)',
+            }"
+          ></div>
+          <span class="flex w-full mt-2">
+            <p class="flex flex-1 text-left">
+              <img :src="left" class="mr-1" />ยึดติดตระกูล
+            </p>
+            <p class="flex-1">พอๆ กัน</p>
+            <p class="flex justify-end flex-1">
+              ยึดติดพรรค <img :src="right" class="ml-1" />
+            </p>
+          </span>
+        </div>
       </div>
-      <div id="pot" class="relative"></div>
+      <div id="pot" class="relative pb-20"></div>
     </div>
   </div>
 </template>
@@ -44,6 +69,8 @@ export default {
     return {
       pot: null,
       svg: null,
+      left: require('~/assets/images/left.svg'),
+      right: require('~/assets/images/right.svg'),
     }
   },
 

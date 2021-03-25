@@ -1,5 +1,5 @@
 <template>
-  <div id="Inpower" class="mt-16">
+  <div id="Inpower" class="my-16">
     <span class="body2" id="header" v-if="$mq != 'mobile'">
       <p>ในการเลือกตั้ง อบจ. ที่ผ่านมา (พ.ศ. 2563)</p>
       <p>หลายตระกูล คว้าตำแหน่งทั้ง นายก อบจ. และ สภา อบจ. ในสมัยเดียวกัน</p>
@@ -28,22 +28,22 @@
           class="flex-1 font-bold text-purple-400 body4"
           style="height: 100px"
         >
-          <p v-if="$mq != 'mobile'">นายก อบจ.2563</p>
+          <p v-if="$mq != 'mobile'" v-html="'นายก<br>อบจ.2563'"></p>
           <p v-if="$mq === 'mobile'" v-html="'นายก<br>อบจ.<br>2563'"></p>
         </div>
         <div
           class="flex-1 font-bold text-purple-400 body4"
           style="height: 100px"
         >
-          <p v-if="$mq != 'mobile'">สภา อบจ.2563</p>
+          <p v-if="$mq != 'mobile'" v-html="'สภา<br>อบจ.2563'"></p>
           <p v-if="$mq === 'mobile'" v-html="'สภา<br>อบจ.<br>2563'"></p>
         </div>
         <div class="flex-1 font-bold text-blue-400 body4" style="height: 100px">
-          <p v-if="$mq != 'mobile'">สส. เขต2562</p>
+          <p v-if="$mq != 'mobile'" v-html="'สส.<br>เขต2562'"></p>
           <p v-if="$mq === 'mobile'" v-html="'สส.<br>เขต<br>2562'"></p>
         </div>
         <div class="flex-1 font-bold text-blue-400 body4" style="height: 100px">
-          <p v-if="$mq != 'mobile'">ครม.2562</p>
+          <p v-if="$mq != 'mobile'" v-html="'ครม.<br>2562'"></p>
           <p v-if="$mq === 'mobile'" v-html="'ครม.<br>2562'"></p>
         </div>
       </div>
@@ -61,7 +61,7 @@
             >
               <p
                 class="relative z-30 pr-3 font-bold bg-yellow-400 body3"
-                style="width: fit-content"
+                style="width: max-content"
               >
                 {{ item.surname }}
               </p>
@@ -81,7 +81,7 @@
                 <div
                   id="wrapper"
                   class="relative z-30 flex flex-col items-center mx-auto text-center bg-yellow-400"
-                  style="width: fit-content"
+                  style="width: max-content"
                 >
                   <img
                     :src="replaceByDefault(i.name, i.surname)"
@@ -117,7 +117,7 @@
                 <div
                   id="wrapper"
                   class="relative z-30 flex flex-col items-center mx-auto text-center bg-yellow-400"
-                  style="width: fit-content"
+                  style="width: max-content"
                 >
                   <img
                     :src="replaceByDefault(i.name, i.surname)"
@@ -151,7 +151,7 @@
                 <div
                   id="wrapper"
                   class="relative z-30 flex flex-col items-center mx-auto text-center bg-yellow-400"
-                  style="width: fit-content"
+                  style="width: max-content"
                 >
                   <img
                     :src="replaceByDefault(i.name, i.surname)"
@@ -180,7 +180,7 @@
                 <div
                   id="wrapper"
                   class="relative z-30 flex flex-col items-center mx-auto text-center bg-yellow-400"
-                  style="width: fit-content"
+                  style="width: max-content"
                 >
                   <img
                     :src="replaceByDefault(i.name, i.surname)"

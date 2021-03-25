@@ -4,21 +4,6 @@
     class="flex flex-col bg-black-400"
     style="transition-duration: 1300ms"
   >
-    <navigation-bar
-      dark="true"
-      class="absolute top-0 w-full px-8 mt-5 bg-black-400"
-      style="transition-duration: 1300ms"
-      v-if="nav_bar"
-    >
-      <div class="flex items-center">
-        <NuxtLink to="/" class="ml-3 text-white cursor-pointer md:ml-0"
-          >Home</NuxtLink
-        >
-        <NuxtLink to="/about" class="ml-5 text-white cursor-pointer"
-          >about</NuxtLink
-        >
-      </div>
-    </navigation-bar>
     <div id="random-title-wrapper" class="text-white duration-500 opacity-100">
       <span class="relative z-20">
         <p id="title" class="w-2/3 mx-auto font-bold md:w-full body1">
@@ -31,14 +16,14 @@
     </div>
     <div id="random-wrapper" class="w-full" style="transition-duration: 1.5s">
       <div id="surname-wrapper">
-        <p class="text-yellow-400 surname" id="surname">
+        <div class="overflow-hidden text-yellow-400 whitespace-no-wrap surname" id="surname">
           {{ sampling[counter].surname }}
-        </p>
+        </div>
         <div
           v-if="stop"
           class="px-3 py-1 m-auto duration-1000 rounded-lg opacity-0 cursor-pointer body5 text-black-300"
           id="rerandom"
-          style="border: 1px solid #3d3d3d; width: fit-content"
+          style="border: 1px solid #3d3d3d; width: max-content"
           @click="re_random"
         >
           สุ่มตระกูลใหม่
@@ -47,7 +32,7 @@
       <div
         id="choose-bottom"
         class="flex justify-center px-8 py-1 m-auto mt-10 text-pink-400 rounded opacity-100 cursor-pointer hover:bg-pink-400 hover:text-black-400 body3"
-        style="border: 1px solid #fc6cff; width: fit-content"
+        style="border: 1px solid #fc6cff; width: max-content"
         @click="picked_surname"
       >
         เลือก
@@ -83,17 +68,20 @@
             </span>
           </span>
           <PassAndFuture :filter_name="filter_name" />
-          <div id="insight" class="w-5/6 m-auto mt-20 mb-6 md:w-6/12 body2">
-            {{ selected.insight }}
-          </div>
+          <div
+            id="insight"
+            class="w-5/6 m-auto mt-20 mb-6 md:w-6/12 body2"
+            v-html="selected.insight"
+          ></div>
           <PartyList :filter_name="filter_name" :selected="selected" />
-          <p class="mt-20 body2">และยังเป็นผู้มีอิทธพลในพื้นที่จังหวัด</p>
-          <p class="mt-5 mb-16 font-bold h2">{{ selected.district }}</p>
+          <p class="mt-20 body2">และยังเป็นผู้มีอิทธิพลในพื้นที่จังหวัด</p>
+          <p class="mt-5 mb-20 font-bold h2">{{ selected.district }}</p>
           <Cluster type="surname-cluster" />
           <Cluster type="party-cluster" />
           <ScatterPot />
           <CheckSurname />
-          <Inpower />
+          <Inpower 
+          />
           <div
             id="relation"
             class="flex flex-col items-center justify-center h-screen text-white bg-black-400"
@@ -131,13 +119,13 @@
             </div>
             <div
               id="body"
-              class="flex flex-col w-4/5 py-20 mx-auto md:flex-row"
+              class="flex flex-col py-20 mx-auto md:flex-row" :style="{width:$mq ==='mobile'?'95%':'75%'}"
             >
               <div
                 v-for="item in country"
                 :key="item.id"
                 class="flex flex-col items-center flex-1 px-8 py-8 mx-4 my-2 bg-white md:my-0"
-                style="height: fit-content"
+                style="height: max-content"
               >
                 <img :src="item.img" class="rounded-full" style="width: 40px" />
                 <p class="pt-12">{{ item.text }}</p>
@@ -191,15 +179,15 @@
                 <p class="pt-5">{{ item.body }}</p>
               </div>
             </div>
-            <div id="bottom" class="flex justify-center pb-16 mt-16">
+            <div id="bottom" class="flex flex-wrap justify-center pb-16 mt-16">
               <div
-                class="px-4 py-3 mx-2 rounded"
+                class="px-4 py-3 mx-2 my-3 rounded"
                 style="border: 1px solid #000000"
               >
                 อ่านบทความเพิ่มเติม
               </div>
               <div
-                class="px-4 py-3 mx-2 rounded"
+                class="px-4 py-3 mx-2 my-3 rounded"
                 style="border: 1px solid #000000"
               >
                 ดาวน์โหลดข้อมูล
@@ -208,7 +196,7 @@
             <div id="sharer" class="flex justify-center pb-20 mt-16">
               <social-sharer></social-sharer>
             </div>
-            <div id="footer" class="mt-5 ">
+            <div id="footer" class="mt-5">
               <elect-footer></elect-footer>
             </div>
           </div>
@@ -229,7 +217,6 @@ export default {
       interval: null,
       timer: 50,
       stop: false,
-      nav_bar: true,
       diff_top: 0,
       is_wrapper: false,
       filter_name: [],
@@ -281,7 +268,7 @@ export default {
         'ไม่ส่งเสริมความเป็นประชาธิปไตยอย่างเสรี ในเชิงการเปิดรับฟังความคิดเห็นที่แตกต่าง การแข่งขันเนื่องจากตระกูลทรงอิทธิพลมีลักษณะเครือญาติและพวกพ้องสูง ทำให้คนที่ต้องการแสดงความคิดเห็นที่แตกต่างทำได้ยาก อีกทั้งยังถูกกีดกันในการแข่งขันทั้งด้านเศรษฐกิจ และการเมือง',
         'การกระจุกตัวของผลประโยชน์ ถึงแม้จะมีความช่วยเหลือให้ประชาชนในท้องถิ่นของตน แต่ผลประโยชน์หลักก็ยังคงอยู่ที่ตระกูลทรงอิทธิพลและเครือข่าย',
         'นโยบายไม่มีความหลากหลายและความสร้างสรรค์มากนัก เนื่องจากเป็นเครือข่ายเดียวกันและการทรงอิทธิพลมาอย่างยาวนาน  ทำให้นโยบายที่ถูกกำหนดขึ้นถูกกำหนดจากตระกูลที่มีอิทธิพลฝั่งเดียว ประกอบกับการขัดแย้งที่น้อยส่งผลให้ไม่มีความหลากหลายและสร้างสรรค์มากนัก',
-        'สร้างการฝังรากลึกของระบบอุปถัมภ์ เนื่องจากอิทธิพลของตระกูลใหญ่ ทั้งด้านเศรษฐกิจ กลุ่มเครือข่าย บารมี ทำให้เกิดความพึ่งพาสูง ส่งผลให้เกิดการต่างตอบแทนขึ้น ซึ่งสามารถขยายและฝั่งรากลึกเป็นระบบอุปถัมภ์',
+        'สร้างการฝังรากลึกของระบบอุปถัมภ์ เนื่องจากอิทธิพลของตระกูลใหญ่ ทั้งด้านเศรษฐกิจ กลุ่มเครือข่าย บารมี ทำให้เกิดความพึ่งพาสูง ส่งผลให้เกิดการต่างตอบแทนขึ้น ซึ่งสามารถขยายและฝังรากลึกเป็นระบบอุปถัมภ์',
       ],
       confident: [
         {
@@ -301,8 +288,7 @@ export default {
             'การเมืองไทยที่มีระบบเครือญาติอาจไม่ได้เป็นปัญหามากนัก หากนโยบาย โครงการกระบวนการจัดซื้อจัดจ้าง เปิดเผยข้อมูลอย่างตรงไปตรงมา และโปร่งใส ประชาชนสามารถเข้าถึงได้',
         },
         {
-          title:
-            'สร้างมีพื้นที่ในการแสดงความคิดเห็น หรือพื้นที่ให้เข้าไปตรวจสอบได้',
+          title: 'สร้างพื้นที่ในการแสดงความคิดเห็นหรือตรวจสอบ',
           body:
             'ควรมีพื้นที่ที่เปิดให้ประชาชน เข้าไปถกเถียง แลกเปลี่ยนความคิดเห็นในเรื่องสาธารณะได้ เป็นจุดที่ขับเคลื่อนความเป็นพลเมืองและเชื่อมทั้งรัฐและประชาชน เสนอความต้องการของตนเองได้',
         },
@@ -332,7 +318,6 @@ export default {
         (n) => n.surname === this.selected.surname
       )
       this.stop = true
-      this.nav_bar = false
       this.timer *= 2.5
       document.getElementById('choose-bottom').style.display = 'none'
     },
@@ -355,9 +340,6 @@ export default {
       document.getElementById('wrapper').style.opacity = '0'
       document.getElementById('choose-bottom').style.display = 'block'
       document.getElementById('surname').style.color = '#F2FFA6'
-      setTimeout(() => {
-        this.nav_bar = true
-      }, 1000)
     },
   },
   watch: {
