@@ -5,7 +5,7 @@
         <div
           class="flex flex-col items-center justify-center w-9/12 m-auto md:flex-row md:w-full"
         >
-          <p>เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด</p>
+          <p class="mb-3 md:mb-0">เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด</p>
           <Autocomplete
             :items="district"
             holder="เลือกจังหวัด"
@@ -30,13 +30,13 @@
         <div
           id="scale-scatter"
           class="relative flex mx-auto mt-10 body5"
-          style="width: 350px"
+          :style="{ width: $mq === 'mobile' ? '250px' : '350px' }"
         >
           <div
             class="absolute mx-auto"
             :style="{
               height: '5px',
-              width: '350px',
+              width: $mq === 'mobile' ? '250px' : '350px',
               background:
                 'linear-gradient(90deg,#2ba3b4 0%,#bdbdbd 51.56%,#f15a29 100%)',
             }"

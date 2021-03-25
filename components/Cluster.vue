@@ -30,9 +30,9 @@
     <div id="Autocomplete" class="flex flex-wrap justify-center mt-2 body2">
       <p v-if="$mq != 'mobile'">ในจังหวัด</p>
       <Autocomplete :items="district" holder="เลือกจังหวัด" />
-      <span class="flex"
+      <span class="flex flex-wrap justify-center mt-4 md:mt-0"
         ><p>พบว่ามีการกระจุกตัวของอิทธิพลทางการเมือง</p>
-        <p class="font-bold">
+        <p class="ml-2 font-bold">
           {{
             type === 'surname-cluster'
               ? heightLow(HHI[0].HHI_surname)
