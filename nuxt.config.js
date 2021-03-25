@@ -1,3 +1,4 @@
+const BASE_URL = 'https://electinth.github.io/political-network/'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -14,14 +15,68 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'political-network',
+    title: 'ที่สุดของตระกูลการเมืองไทย ถิ่นไหน.. ใครครอง',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: ' วิเคราะห์ความสัมพันธ์และการครองอำนาจผ่านนามสกุล',
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'ที่สุดของตระกูลการเมืองไทย ถิ่นไหน.. ใครครอง',
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: ' วิเคราะห์ความสัมพันธ์และการครองอำนาจผ่านนามสกุล',
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: BASE_URL + 'og_image.jpg',
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: BASE_URL,
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: ' วิเคราะห์ความสัมพันธ์และการครองอำนาจผ่านนามสกุล',
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: ' วิเคราะห์ความสัมพันธ์และการครองอำนาจผ่านนามสกุล',
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image:src',
+        content: BASE_URL + 'og_image.jpg',
+      },
+      {
+        hid: 'twitter:url',
+        property: 'twitter:url',
+        content: BASE_URL,
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -207,7 +207,7 @@
               </div>
             </div>
             <div id="sharer" class="flex justify-center pb-20 mt-16">
-              <social-sharer></social-sharer>
+              <social-sharer :url="BASE_URL"></social-sharer>
             </div>
             <div id="footer" class="mt-5">
               <elect-footer></elect-footer>
@@ -236,6 +236,7 @@ export default {
       is_wrapper: false,
       filter_name: [],
       relation: relation.default,
+      BASE_URL: 'https://electinth.github.io/political-network/',
       why: [
         {
           title: 'มีทุนทางเศรษฐกิจ',

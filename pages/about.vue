@@ -427,7 +427,9 @@
         </div>
         <div class="mt-10 body3">
           โปรเจกต์ Political Network ได้รับการสนับสนุนทุนในการดำเนินงานจาก
-          <a target="_blank" class="underline" href="https://www.ned.org/">National Endowment for Democracy (NED)</a>
+          <a target="_blank" class="underline" href="https://www.ned.org/"
+            >National Endowment for Democracy (NED)</a
+          >
           ซึ่งนำมาใช้เป็นต้นทุนในการรวมรวมข้อมูล ออกแบบ พัฒนาเว็บไซต์ ประสานงาน
           บริหารจัดการ ตลอดจนการจัด Meetup เพื่อดำเนินโครงการ
         </div>
@@ -452,7 +454,7 @@
         ดาวน์โหลดข้อมูล
       </div>
       <div id="sharer" class="flex justify-center pb-20 mt-16">
-        <social-sharer></social-sharer>
+        <social-sharer :url="BASE_URL"></social-sharer>
       </div>
       <div id="footer" class="mt-5">
         <elect-footer></elect-footer>
@@ -462,7 +464,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      BASE_URL: 'https://electinth.github.io/political-network/',
+    }
+  },
+}
 </script>
 
 <style></style>
