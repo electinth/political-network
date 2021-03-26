@@ -21,7 +21,11 @@
       id="chart"
       class="relative flex flex-col mx-5 mt-16 md:mx-auto md:w-4/6"
     >
-      <div id="header" class="sticky flex">
+      <div
+        id="header"
+        class="sticky z-20 flex"
+        :style="{ top: $mq === 'mobile' ? '160px' : '170px' }"
+      >
         <div :style="{ flex: $mq === 'mobile' ? '2' : '1' }">
           <div style="height: 100px" />
         </div>
@@ -48,7 +52,7 @@
           <p v-if="$mq === 'mobile'" v-html="'ครม.<br>2562'"></p>
         </div>
       </div>
-      <div class="flex-1">
+      <div class="relative z-10 flex-1">
         <div
           v-for="(item, key) in position"
           :key="key"
