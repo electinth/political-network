@@ -469,7 +469,7 @@
 export default {
   data() {
     return {
-      BASE_URL: 'https://electinth.github.io/political-network/',
+      BASE_URL: 'https://elect.in.th/political-network/',
     }
   },
 }
