@@ -24,7 +24,9 @@
       <div
         id="header"
         class="sticky z-20 flex"
-        :style="{ top: $mq === 'mobile' ? '80px' : '170px' }"
+        :style="{
+          top: diff_top + 30 + 'px',
+        }"
       >
         <div :style="{ flex: $mq === 'mobile' ? '2' : '1' }">
           <div style="height: 100px" />
@@ -221,7 +223,13 @@ export default {
     return {
       groups: null,
       position: null,
+      diff_top: 0,
     }
+  },
+  created() {
+    this.diff_top = document
+      .getElementById('random-wrapper')
+      .getBoundingClientRect().top
   },
   mounted() {
     this.groups = _.groupBy(this.in_power, 'surname')
