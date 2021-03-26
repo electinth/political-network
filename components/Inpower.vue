@@ -24,7 +24,7 @@
       <div
         id="header"
         class="sticky z-20 flex"
-        :style="{ top: $mq === 'mobile' ? '160px' : '170px' }"
+        :style="{ top: $mq === 'mobile' ? '80px' : '170px' }"
       >
         <div :style="{ flex: $mq === 'mobile' ? '2' : '1' }">
           <div style="height: 100px" />
