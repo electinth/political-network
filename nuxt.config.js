@@ -1,5 +1,4 @@
 const BASE_URL = 'https://electinth.github.io/political-network/'
-// const BASE_URL = 'https://elect.in.th/political-network/'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -9,9 +8,7 @@ export default {
   router: {
     base: process.env.BASE_URL || '/',
   },
-  generate: {
-    dir: 'political-network',
-  },
+
   build: {
     publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
   },
@@ -48,7 +45,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: BASE_URL + 'og_image.jpg',
+        content: BASE_URL + 'home_og.jpg',
       },
       {
         hid: 'og:url',
@@ -73,7 +70,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image:src',
-        content: BASE_URL + 'og_image.jpg',
+        content: BASE_URL + 'home_og.jpg',
       },
       {
         hid: 'twitter:url',

@@ -25,6 +25,7 @@ jobs:
         env:
           BASE_URL: /political-network
           SITE_URL: https://electinth.github.io/political-network
+        
       - name: Deploy to Github Page
         uses: peaceiris/actions-gh-pages@v3
         with:
