@@ -85,7 +85,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'political-network/favicon.ico',
+        href: BASE_URL + 'favicon.ico',
       },
       { rel: 'stylesheet', href: 'https://elect.in.th/assets/typography.css' },
     ],
