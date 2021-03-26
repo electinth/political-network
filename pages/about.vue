@@ -447,12 +447,14 @@
           contact [at] elect.in.th
         </p>
       </div>
-      <div
+      <a
         class="px-4 py-3 mx-auto rounded"
         style="border: 1px solid #000000; width: max-content"
+        href="https://elect.in.th/political-network-data"
+        target="_blank"
       >
         ดาวน์โหลดข้อมูล
-      </div>
+      </a>
       <div id="sharer" class="flex justify-center pb-20 mt-16">
         <social-sharer :url="BASE_URL"></social-sharer>
       </div>

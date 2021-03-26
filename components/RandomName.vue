@@ -196,18 +196,22 @@
               </div>
             </div>
             <div id="bottom" class="flex flex-wrap justify-center pb-16 mt-16">
-              <div
+              <a
                 class="px-4 py-3 mx-2 my-3 rounded"
                 style="border: 1px solid #000000"
+                href="https://elect.in.th/political-network"
+                target="_blank"
               >
                 อ่านบทความเพิ่มเติม
-              </div>
-              <div
+              </a>
+              <a
+                href="https://elect.in.th/political-network-data"
+                target="_blank"
                 class="px-4 py-3 mx-2 my-3 rounded"
                 style="border: 1px solid #000000"
               >
                 ดาวน์โหลดข้อมูล
-              </div>
+              </a>
             </div>
             <div id="sharer" class="flex justify-center pb-20 mt-16">
               <social-sharer :url="BASE_URL"></social-sharer>
