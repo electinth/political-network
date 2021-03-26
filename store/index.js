@@ -19,6 +19,8 @@ const state = () => ({
   in_power: in_power,
   selected: [],
   selected_district: null,
+  selected_name: null,
+  tooltip: false,
 
   // filter_name: [],
 })
@@ -35,6 +37,12 @@ const mutations = {
   },
   SET_DISTRICT(state, payload) {
     state.selected_district = payload
+  },
+  SET_SELECTED_NAME(state, payload) {
+    state.selected_name = payload
+  },
+  SET_TOOLTIP(state, payload) {
+    state.tooltip = payload
   },
 }
 const actions = {

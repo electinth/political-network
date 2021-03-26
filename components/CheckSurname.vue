@@ -70,73 +70,6 @@
         {{ r.surname }}
       </div>
     </div>
-    <div
-      v-if="tooltip"
-      id="surname_checklist"
-      class="absolute px-5 pt-8 overflow-y-hidden bg-white"
-      style="transform: translate(-50%, -50%); left: 50%; top: 70%"
-      :style="{ width: $mq === 'mobile' ? '90%' : '450px', minHeight: '400px' }"
-    >
-      <div class="font-bold body1" id="header">{{ groupBy.surname }}</div>
-      <img
-        :src="X"
-        class="absolute top-0 right-0 p-3 cursor-pointer"
-        @click="tooltip = false"
-      />
-      <div id="body" class="flex pt-5 text-left">
-        <div class="flex-1 body6">
-          <div id="title" class="font-bold text-purple-400">
-            ระดับท้องถิ่น
-
-            <div id="circle" class="flex my-2">
-              <div
-                v-for="i in groupBy['ท้องถิ่น'].length"
-                :key="i"
-                class="mt-1 mr-1 bg-purple-400 rounded-full"
-                style="width: 10px; height: 10px"
-              ></div>
-            </div>
-          </div>
-          <div id="body" class="overflow-y-auto" style="height: 250px">
-            <div v-for="(item, index) in groupBy['ท้องถิ่น']" :key="item.id">
-              <span class="flex font-bold">
-                <p>{{ index + 1 }}.</p>
-                <p>{{ item.name }}</p>
-                <p class="ml-1">{{ item.surname }}</p>
-              </span>
-              <p>{{ item.position }}</p>
-              <p>พรรค {{ item.party ? item.party : '-' }}</p>
-              <p>ปี​​ {{ item.start_year }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex-1 body6">
-          <div id="title" class="font-bold text-blue-400">
-            ระดับประเทศ
-            <div id="circle" class="flex flex-wrap my-2">
-              <div
-                v-for="i in groupBy['ทั่วประเทศ'].length"
-                :key="i"
-                class="mt-1 mr-1 bg-blue-400 rounded-full"
-                style="width: 10px; height: 10px"
-              ></div>
-            </div>
-          </div>
-          <div id="body" class="overflow-y-auto" style="height: 250px">
-            <div v-for="(item, index) in groupBy['ทั่วประเทศ']" :key="item.id">
-              <span class="flex font-bold">
-                <p>{{ index + 1 }}.</p>
-                <p>{{ item.name }}</p>
-                <p class="ml-1">{{ item.surname }}</p>
-              </span>
-              <p>{{ item.position }}</p>
-              <p>พรรค {{ item.party ? item.party : '-' }}</p>
-              <p>ปี​​ {{ item.start_year }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -172,18 +105,24 @@ export default {
       ],
       results: [],
       fontSize: 0,
-      tooltip: false,
       groupBy: null,
       X: require('~/assets/images/X.svg'),
     }
   },
   computed: {
-    ...mapState(['categories', 'categories_names', 'selected']),
+    ...mapState([
+      'categories',
+      'categories_names',
+      'selected',
+      'selected_name',
+      'tooltip',
+    ]),
   },
 
   methods: {
+    ...mapMutations(['SET_SELECTED_NAME', 'SET_TOOLTIP']),
     active_tooltip(hover) {
-      this.tooltip = true
+      this.SET_TOOLTIP(true)
       let filter = _.filter(this.categories_names, function (c) {
         return c.surname === hover.surname
       })
@@ -200,7 +139,7 @@ export default {
         ทั่วประเทศ: [...ครม, ...สส],
       }
       _.assign(this.groupBy, { surname: hover.surname })
-      // d3.select('#surname_checklist').style('top', '20px')
+      this.SET_SELECTED_NAME(this.groupBy)
     },
   },
   watch: {
@@ -208,7 +147,7 @@ export default {
       immediate: true,
       deep: true,
       handler(newValue, oldValue) {
-        this.tooltip = false
+        this.SET_TOOLTIP(false)
         this.results = _.filter(this.categories, (c) =>
           newValue.every((n) => c[n] === 1)
         )

@@ -4,6 +4,7 @@
     class="flex flex-col bg-black-400"
     style="transition-duration: 1300ms"
   >
+    <Tooltip />
     <div id="random-title-wrapper" class="text-white duration-500 opacity-100">
       <span class="relative z-20">
         <p id="title" class="w-2/3 mx-auto font-bold md:w-full body1">
@@ -102,7 +103,9 @@
 
             <lottie
               class="absolute inset-0 z-0"
-              :style="{ transform: $mq === 'mobile'? 'scale(4)':'scale(1.5)' }"
+              :style="{
+                transform: $mq === 'mobile' ? 'scale(4)' : 'scale(1.5)',
+              }"
               id="lottie_relation"
               :options="{
                 animationData: relation,
