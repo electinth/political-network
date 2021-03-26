@@ -20,7 +20,11 @@
       <div id="body" class="flex justify-center mt-3">
         <div class="flex flex-col items-center mx-1">
           <div
-            class="mb-6 font-bold text-white bg-purple-400 rounded-full md:px-3 bubble body5"
+            class="mb-6 font-bold rounded-full md:px-3 bubble body5"
+            style="border: 1px solid #a97eef"
+            :class="
+              role1.length ? ' bg-purple-400 text-white' : ' text-purple-400'
+            "
           >
             นายก/รองนายกอบจ
           </div>
@@ -35,8 +39,11 @@
         </div>
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-purple-400 rounded-full bubble body5"
+            class="px-3 mb-6 font-bold rounded-full bubble body5"
             style="border: 1px solid #a97eef"
+            :class="
+              role2.length ? ' bg-purple-400 text-white' : ' text-purple-400'
+            "
           >
             ส.อบจ
           </div>
@@ -51,7 +58,9 @@
         </div>
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-white bg-blue-400 rounded-full bubble body5"
+            class="px-3 mb-6 font-bold rounded-full bubble body5"
+            style="border: 1px solid #1861f0"
+            :class="role3.length ? ' bg-blue-400 text-white' : ' text-blue-400'"
           >
             สส.
           </div>
@@ -68,7 +77,7 @@
           <div
             class="px-3 mb-6 font-bold rounded-full bubble body"
             style="border: 1px solid #1861f0"
-            :class="role8.length ? 'bg-blue-400 text-white' : ' text-blue-400'"
+            :class="role4.length ? 'bg-blue-400 text-white' : ' text-blue-400'"
           >
             ครม.
           </div>
@@ -92,7 +101,11 @@
       <div id="body" class="flex justify-center mt-3">
         <div class="flex flex-col items-center mx-1">
           <div
-            class="mb-6 font-bold text-white bg-purple-400 rounded-full md:px-3 bubble body5"
+            class="mb-6 font-bold rounded-full md:px-3 bubble body5"
+            style="border: 1px solid #a97eef"
+            :class="
+              role5.length ? ' bg-purple-400 text-white' : ' text-purple-400'
+            "
           >
             นายก/รองนายกอบจ
           </div>
@@ -107,8 +120,11 @@
         </div>
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-purple-400 rounded-full bubble body5"
+            class="px-3 mb-6 font-bold rounded-full bubble body5"
             style="border: 1px solid #a97eef"
+            :class="
+              role6.length ? ' bg-purple-400 text-white' : ' text-purple-400'
+            "
           >
             ส.อบจ
           </div>
@@ -123,7 +139,9 @@
         </div>
         <div class="flex flex-col items-center mx-1">
           <div
-            class="px-3 mb-6 font-bold text-white bg-blue-400 rounded-full bubble body5"
+            class="px-3 mb-6 font-bold rounded-full bubble body5"
+            style="border: 1px solid #1861f0"
+            :class="role7.length ? ' bg-blue-400 text-white' : ' text-blue-400'"
           >
             สส.
           </div>
