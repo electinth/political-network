@@ -85,7 +85,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: BASE_URL + 'favicon.ico',
+        href: '/favicon.ico',
       },
       { rel: 'stylesheet', href: 'https://elect.in.th/assets/typography.css' },
     ],
