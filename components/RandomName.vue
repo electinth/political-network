@@ -243,8 +243,8 @@ export default {
       is_wrapper: false,
       filter_name: [],
       relation: relation.default,
-      // BASE_URL: 'https://electinth.github.io/political-network/',
-      BASE_URL: 'https://elect.in.th/political-network/',
+      BASE_URL: 'https://electinth.github.io/political-network/',
+      // BASE_URL: 'https://elect.in.th/political-network/',
       why: [
         {
           title: 'มีทุนทางเศรษฐกิจ',
