@@ -106,7 +106,6 @@ export default {
       results: [],
       fontSize: 0,
       groupBy: null,
-      X: require('~/assets/images/X.svg'),
     }
   },
   computed: {

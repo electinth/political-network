@@ -221,9 +221,23 @@ export default {
         .style('left', e.clientX + 15 + 'px')
         .style('display', 'inline')
         .text(district)
+      if (district != this.selected_district) {
+        this.svg
+          .selectAll(`.${district}`)
+          .style('stroke', 'black')
+          .style('stroke-width', '1px')
+      }
     },
-    mouseout() {
+    mouseout(e) {
+      let district = _.get(e, 'target.className.baseVal')
       d3.selectAll('.tooltip').style('display', 'none')
+
+      if (district != this.selected_district) {
+        this.svg
+          .selectAll(`.${district}`)
+          .style('stroke', 'black')
+          .style('stroke-width', '0')
+      }
     },
     click(e) {
       let district = _.get(e, 'target.className.baseVal')

@@ -543,9 +543,15 @@ export default {
         .style('left', e.offsetX + 15 + 'px')
         .style('display', 'inline')
         .text(className[1])
+      if (className[1] != this.selected_district)
+        d3.selectAll(`.${className[1]}`).style('stroke-width', '2px')
     },
-    mouseout() {
+    mouseout(e) {
       d3.selectAll('.tooltip').style('display', 'none')
+      let district = _.get(e, 'target.className.baseVal')
+      let className = _.split(district, ' ')
+      if (className[1] != this.selected_district)
+        d3.selectAll(`.${className[1]}`).style('stroke-width', '1px')
     },
     click(e) {
       let district = _.get(e, 'target.className.baseVal')
