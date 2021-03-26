@@ -5,14 +5,14 @@
         <div
           class="flex flex-col items-center justify-center w-9/12 m-auto md:flex-row md:w-full"
         >
-          <p class="mb-3 md:mb-0">เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด</p>
+          <p class="mb-3 md:mb-0 body2">เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด</p>
           <Autocomplete
             :items="district"
             holder="เลือกจังหวัด"
-            class="mb-3 md:mb-0"
+            class="mb-3 md:mb-0 body2"
           />
         </div>
-        <p v-if="$mq != 'mobile'" class="mt-3">
+        <p v-if="$mq != 'mobile'" class="mt-3 body2">
           พบว่ามีการกระจุกตัวของอิทธิพลทางการเมืองของตระกูล<span
             class="font-bold"
             >{{ heightLow(HHI[0].HHI_surname) }}</span
