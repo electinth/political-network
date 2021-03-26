@@ -126,13 +126,13 @@ export default {
         return c.surname === hover.surname
       })
       this.groupBy = _.groupBy(filter, 'position')
-      let นายก = this.groupBy['นายก'] ? this.groupBy['นายก'] : []
-      let รองนายก = this.groupBy['นายก/รองนายก']
-        ? this.groupBy['นายก/รองนายก']
+      let นายก = this.groupBy['นายก อบจ.'] ? this.groupBy['นายก อบจ.'] : []
+      let รองนายก = this.groupBy['นายก/รองนายก อบจ.']
+        ? this.groupBy['นายก/รองนายก อบจ.']
         : []
-      let สภา = this.groupBy['สภา'] ? this.groupBy['สภา'] : []
-      let ครม = this.groupBy['ครม'] ? this.groupBy['ครม'] : []
-      let สส = this.groupBy['สส.'] ? this.groupBy['สส.'] : []
+      let สภา = this.groupBy['ส. อบจ.'] ? this.groupBy['ส. อบจ.'] : []
+      let ครม = this.groupBy['ครม.'] ? this.groupBy['ครม.'] : []
+      let สส = this.groupBy['ส.ส.'] ? this.groupBy['ส.ส.'] : []
       this.groupBy = {
         ท้องถิ่น: [...นายก, ...รองนายก, ...สภา],
         ทั่วประเทศ: [...ครม, ...สส],
