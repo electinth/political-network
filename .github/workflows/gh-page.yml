@@ -23,9 +23,8 @@ jobs:
       - name: Build project
         run: npm run generate
         env:
-          # BASE_PATH: /political-network
+          BASE_URL: /political-network
           SITE_URL: https://electinth.github.io/political-network/
-
       - name: Deploy to Github Page
         uses: peaceiris/actions-gh-pages@v3
         with:
