@@ -1,4 +1,4 @@
-const BASE_URL = 'https://electinth.github.io/political-network/'
+const BASE_URL = 'https://elect.in.th/political-network/'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -8,7 +8,9 @@ export default {
   router: {
     base: process.env.BASE_URL || '/',
   },
-
+  generate: {
+    dir: 'political-network',
+  },
   build: {
     publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
   },

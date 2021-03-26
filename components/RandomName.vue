@@ -199,7 +199,7 @@
               <a
                 class="px-4 py-3 mx-2 my-3 rounded"
                 style="border: 1px solid #000000"
-                href="https://elect.in.th/political-network"
+                href="https://elect.in.th/political-network-read"
                 target="_blank"
               >
                 อ่านบทความเพิ่มเติม
@@ -243,7 +243,7 @@ export default {
       is_wrapper: false,
       filter_name: [],
       relation: relation.default,
-      BASE_URL: 'https://electinth.github.io/political-network/',
+      BASE_URL: 'https://elect.in.th/political-network/',
       why: [
         {
           title: 'มีทุนทางเศรษฐกิจ',
