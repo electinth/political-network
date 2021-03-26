@@ -26,7 +26,7 @@
               role1.length ? ' bg-purple-400 text-white' : ' text-purple-400'
             "
           >
-            นายก/รองนายกอบจ
+           นายก/รอง อบจ.
           </div>
           <div v-for="(s, index) in role1" :key="index" class="mb-2">
             <img
@@ -45,7 +45,7 @@
               role2.length ? ' bg-purple-400 text-white' : ' text-purple-400'
             "
           >
-            ส.อบจ
+            ส.อบจ.
           </div>
           <div v-for="(s, index) in role2" :key="index" class="mb-2">
             <img
@@ -107,7 +107,7 @@
               role5.length ? ' bg-purple-400 text-white' : ' text-purple-400'
             "
           >
-            นายก/รองนายกอบจ
+           นายก/รอง อบจ.
           </div>
           <div v-for="(s, index) in role5" :key="index" class="mb-2">
             <img
@@ -126,7 +126,7 @@
               role6.length ? ' bg-purple-400 text-white' : ' text-purple-400'
             "
           >
-            ส.อบจ
+            ส.อบจ.
           </div>
           <div v-for="(s, index) in role6" :key="index" class="mb-2">
             <img
@@ -143,7 +143,7 @@
             style="border: 1px solid #1861f0"
             :class="role7.length ? ' bg-blue-400 text-white' : ' text-blue-400'"
           >
-            สส.
+            ส.ส.
           </div>
           <div v-for="(s, index) in role7" :key="index" class="mb-2">
             <img

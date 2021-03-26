@@ -27,6 +27,7 @@
         }}</span
       >ในจังหวัด
     </p>
+
     <div id="Autocomplete" class="flex flex-wrap justify-center mt-2 body2">
       <p v-if="$mq != 'mobile'">ในจังหวัด</p>
       <Autocomplete :items="district" holder="เลือกจังหวัด" />
@@ -41,7 +42,11 @@
         </p></span
       >
     </div>
-    <p class="mt-16 opacity-50 body5">(คลิกเพื่อดูจังหวัดอื่นๆ ได้)</p>
+    <div class="w-9/12 mx-auto mt-5 body6 md:w-full">
+      หมายเหตุ: คำนวณจากจำนวนครั้งที่แต่ละตระกูลได้รับ เลือกเป็น
+      ส.ส.เขตจังหวัดนั้น ในช่วงปี 2535-2563 (ชุด 48-62)
+    </div>
+    <p class="mt-10 opacity-50 body5">(คลิกเพื่อดูจังหวัดอื่นๆ ได้)</p>
     <div id="wrapper-body" class="flex flex-col mt-3 md:flex-row">
       <div class="relative flex justify-center flex-1 md:justify-end xl:mx-16">
         <Map :data="HHI_Overall" :type="type" />

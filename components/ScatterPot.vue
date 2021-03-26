@@ -12,13 +12,15 @@
             class="mb-3 md:mb-0"
           />
         </div>
-        <p
-          v-if="$mq != 'mobile'"
-          class="mt-3"
-          v-html="
-            'พบว่ามีการกระจุกตัวของอิทธิพลทางการเมืองของตระกูล<b> สูง</b> ขณะที่ของพรรค<b> ต่ำ</b>'
-          "
-        />
+        <p v-if="$mq != 'mobile'" class="mt-3">
+          พบว่ามีการกระจุกตัวของอิทธิพลทางการเมืองของตระกูล<span
+            class="font-bold"
+            >{{ heightLow(HHI[0].HHI_surname) }}</span
+          >
+          ขณะที่ของพรรค<span class="font-bold">
+            {{ heightLow(HHI[0].HHI_party) }}</span
+          >
+        </p>
         <span
           v-if="$mq === 'mobile'"
           v-html="
@@ -71,6 +73,7 @@ export default {
       svg: null,
       left: require('~/assets/images/left.svg'),
       right: require('~/assets/images/right.svg'),
+      HHI: null,
     }
   },
 
@@ -243,20 +246,36 @@ export default {
       let district = _.get(e, 'target.className.baseVal')
       this.SET_DISTRICT(district)
     },
+    heightLow(HHI) {
+      if (HHI <= 1 && HHI > 0.7) {
+        return 'สูง'
+      } else if (HHI < 0.69 && HHI > 0.31) {
+        return 'ปานกลาง'
+      } else {
+        return 'ต่ำ'
+      }
+    },
   },
+
   watch: {
-    selected_district(newValue, oldValue) {
-      this.renew_data()
-      d3.select('#pot_svg').remove()
-      this.draw()
-      this.svg
-        .selectAll(`.${oldValue}`)
-        .style('stroke', 'black')
-        .style('stroke-width', '0')
-      this.svg
-        .selectAll(`.${newValue}`)
-        .style('stroke', 'black')
-        .style('stroke-width', '2px')
+    selected_district: {
+      immediate: true,
+      deep: true,
+      handler(newValue, oldValue) {
+        this.renew_data()
+        d3.select('#pot_svg').remove()
+        this.draw()
+        this.svg
+          .selectAll(`.${oldValue}`)
+          .style('stroke', 'black')
+          .style('stroke-width', '0')
+        this.svg
+          .selectAll(`.${newValue}`)
+          .style('stroke', 'black')
+          .style('stroke-width', '2px')
+
+        this.HHI = _.filter(this.HHI_Overall, (d) => d.district === newValue)
+      },
     },
   },
 }
