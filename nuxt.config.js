@@ -12,6 +12,9 @@ export default {
   build: {
     publicPath: `${process.env.BASE_URL}/_nuxt/`,
   },
+  generate: {
+    dir: 'political-network',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
