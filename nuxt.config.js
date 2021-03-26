@@ -1,4 +1,5 @@
 const BASE_URL = 'https://electinth.github.io/political-network/'
+// const BASE_URL = 'https://elect.in.th/political-network/'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -8,7 +9,9 @@ export default {
   router: {
     base: process.env.BASE_URL || '/',
   },
-
+  generate: {
+    dir: 'political-network',
+  },
   build: {
     publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
   },
@@ -79,7 +82,11 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: 'political-network/favicon.ico',
+      },
       { rel: 'stylesheet', href: 'https://elect.in.th/assets/typography.css' },
     ],
   },
