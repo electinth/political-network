@@ -21,13 +21,7 @@
       id="chart"
       class="relative flex flex-col mx-5 mt-16 md:mx-auto md:w-4/6"
     >
-      <div
-        id="header"
-        class="sticky z-20 flex"
-        :style="{
-          top: diff_top + 30 + 'px',
-        }"
-      >
+      <div id="header" class="z-20 flex">
         <div :style="{ flex: $mq === 'mobile' ? '2' : '1' }">
           <div style="height: 100px" />
         </div>
