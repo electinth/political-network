@@ -10,7 +10,7 @@ export default {
     base: process.env.BASE_URL || '/',
   },
   build: {
-    publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
+    publicPath: `${process.env.BASE_URL}/_nuxt/`,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
