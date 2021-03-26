@@ -205,7 +205,7 @@
                 อ่านบทความเพิ่มเติม
               </a>
               <a
-                href="https://elect.in.th/political-network-data"
+                href="https://docs.google.com/spreadsheets/d/1xwUlNQCVTIxTMiT8N1QJTvbS9MgmhC4u_EpsoN1Y4Ss/edit#gid=1002679175"
                 target="_blank"
                 class="px-4 py-3 mx-2 my-3 rounded"
                 style="border: 1px solid #000000"
@@ -243,8 +243,8 @@ export default {
       is_wrapper: false,
       filter_name: [],
       relation: relation.default,
-      BASE_URL: 'https://electinth.github.io/political-network/',
-      // BASE_URL: 'https://elect.in.th/political-network/',
+      // BASE_URL: 'https://electinth.github.io/political-network/',
+      BASE_URL: 'https://elect.in.th/political-network/',
       why: [
         {
           title: 'มีทุนทางเศรษฐกิจ',

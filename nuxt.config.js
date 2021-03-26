@@ -9,9 +9,6 @@ export default {
   router: {
     base: process.env.BASE_URL || '/',
   },
-  // generate: {
-  //   dir: 'political-network',
-  // },
   build: {
     publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
   },
@@ -85,7 +82,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico',
+        href: BASE_URL + '/favicon.ico',
       },
       { rel: 'stylesheet', href: 'https://elect.in.th/assets/typography.css' },
     ],

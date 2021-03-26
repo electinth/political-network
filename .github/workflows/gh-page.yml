@@ -23,7 +23,7 @@ jobs:
       - name: Build project
         run: npm run generate
         env:
-          BASE_URL: /political-network
+          BASE_PATH: /political-network
           SITE_URL: https://electinth.github.io/political-network
 
       - name: Deploy to Github Page
