@@ -9,9 +9,9 @@ export default {
   router: {
     base: process.env.BASE_URL || '/',
   },
-  generate: {
-    dir: 'political-network',
-  },
+  // generate: {
+  //   dir: 'political-network',
+  // },
   build: {
     publicPath: `${process.env.BASE_URL || ''}/_nuxt/`,
   },
