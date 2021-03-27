@@ -17,10 +17,10 @@
         <p v-if="$mq != 'mobile'" class="mt-3 body2">
           พบว่ามีการกระจุกตัวของอิทธิพลทางการเมืองของตระกูล<span
             class="font-bold"
-            >{{ heightLow(HHI[0].HHI_surname) }}</span
+            >{{ heightLow(HHI[0].HHI_party) }}</span
           >
           ขณะที่ของพรรค<span class="font-bold">
-            {{ heightLow(HHI[0].HHI_party) }}</span
+            {{ heightLow(HHI[0].HHI_surname) }}</span
           >
         </p>
         <span
