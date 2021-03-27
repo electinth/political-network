@@ -47,11 +47,11 @@
           ></div>
           <span class="flex w-full mt-2">
             <p class="flex flex-1 text-left">
-              <img :src="left" class="mr-1" />ยึดติดตระกูล
+              <img :src="left" class="mr-1" />ยึดโยงพรรค
             </p>
             <p class="flex-1">พอๆ กัน</p>
             <p class="flex justify-end flex-1">
-              ยึดติดพรรค <img :src="right" class="ml-1" />
+             ยึดโยงตระกูล <img :src="right" class="ml-1" />
             </p>
           </span>
         </div>
@@ -140,13 +140,13 @@ export default {
         .attr('r', 5)
         .style('fill', function (d) {
           if (d.HHI_party > 0.7) {
-            return '#F15A29'
-          } else if (d.HHI_surname > 0.7) {
             return '#2BA3B4'
+          } else if (d.HHI_surname > 0.7) {
+            return '#F15A29'
           } else if (d.HHI_party < 0.7 && d.HHI_party > 0.5) {
-            return '#CBA295'
+            return'#95B6BA'
           } else if (d.HHI_surname < 0.7 && d.HHI_surname > 0.5) {
-            return '#95B6BA'
+            return  '#CBA295'
           } else {
             return '#BDBDBD'
           }
