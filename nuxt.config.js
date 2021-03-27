@@ -1,5 +1,5 @@
-const BASE_URL = 'https://electinth.github.io/political-network/'
-// const BASE_URL = 'https://elect.in.th/political-network/'
+// const BASE_URL = 'https://electinth.github.io/political-network/'
+const BASE_URL = 'https://elect.in.th/political-network/'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -101,7 +101,11 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
   ],
+  googleAnalytics: {
+    id: 'UA-129270906-1',
+  },
 
   tailwindcss: {
     configPath: '@/tailwind.config.js',

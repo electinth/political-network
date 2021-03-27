@@ -5,7 +5,9 @@
         <div
           class="flex flex-col items-center justify-center w-9/12 m-auto md:flex-row md:w-full"
         >
-          <p class="mb-3 md:mb-0 body2">เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด</p>
+          <p class="mb-3 md:mb-0 body2">
+            เมื่อนำตระกูลและพรรคมาเทียบกัน ในจังหวัด
+          </p>
           <Autocomplete
             :items="district"
             holder="เลือกจังหวัด"
@@ -78,7 +80,6 @@ export default {
   },
 
   mounted() {
-    this.renew_data()
     this.draw()
   },
   methods: {
@@ -90,6 +91,7 @@ export default {
     },
 
     draw() {
+      // this.renew_data()
       let w = this.$mq === 'mobile' ? 330 : 460
       let h = this.$mq === 'mobile' ? 390 : 400
       this.pot = d3.select('#pot')
@@ -262,7 +264,6 @@ export default {
       immediate: true,
       deep: true,
       handler(newValue, oldValue) {
-        this.renew_data()
         d3.select('#pot_svg').remove()
         this.draw()
         this.svg
