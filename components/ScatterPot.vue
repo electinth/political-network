@@ -84,11 +84,11 @@ export default {
   },
   methods: {
     ...mapMutations(['SET_HHI_OVERALL', 'SET_DISTRICT']),
-    renew_data() {
-      let data = this.HHI_Overall
-      let drop = _.remove(data, (d) => d.district === this.selected_district)
-      this.SET_HHI_OVERALL([...data, ...drop])
-    },
+    // renew_data() {
+    //   let data = this.HHI_Overall
+    //   let drop = _.remove(data, (d) => d.district === this.selected_district)
+    //   this.SET_HHI_OVERALL([...data, ...drop])
+    // },
 
     draw() {
       // this.renew_data()

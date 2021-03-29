@@ -21,6 +21,7 @@ const state = () => ({
   selected_district: null,
   selected_name: null,
   tooltip: false,
+  scatterData: HHI_Overall,
 
   // filter_name: [],
 })
@@ -34,6 +35,9 @@ const mutations = {
   },
   SET_HHI_OVERALL(state, payload) {
     state.HHI_Overall = payload
+  },
+  SET_SCATTER(state, payload) {
+    state.scatterData = payload
   },
   SET_DISTRICT(state, payload) {
     state.selected_district = payload
